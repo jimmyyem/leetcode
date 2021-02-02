@@ -32,5 +32,5 @@ func main() {
 	//var num uint32 = 000000000100
 	//fmt.Println(answers.HammingWeight(num))
 
-	
+
 }
