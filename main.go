@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"leetcode/answers"
+)
+
 func main() {
 	//fmt.Println("5张扑克牌是否连续")
 	//nums := []int{0, 0, 0, 19, 5}
@@ -32,5 +37,23 @@ func main() {
 	//var num uint32 = 000000000100
 	//fmt.Println(answers.HammingWeight(num))
 
+	//fmt.Println("颠倒二进制数")
+	//var num uint32 = 4294967293
+	//res := answers.ReverseBits(num)
+	//fmt.Println(res)
 
+	//fmt.Println("判断是否是快乐数")
+	//res := answers.IsHappy(2)
+	//fmt.Println(res)
+
+	//fmt.Println("判断是否是山脉数组")
+	//arr := []int{}
+	//arr = append(arr,  1,2,3,4)
+	//res := answers.ValidMountainArray(arr)
+	//fmt.Println(res)
+
+	fmt.Println("重新排列日志文件")
+	arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
+	res := answers.ReorderLogFiles(arr)
+	fmt.Println(res)
 }
