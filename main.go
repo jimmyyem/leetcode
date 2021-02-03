@@ -1,9 +1,7 @@
 package main
 
-import (
-	"fmt"
-	"leetcode/answers"
-)
+import "leetcode/answers"
+import "fmt"
 
 func main() {
 	//fmt.Println("5张扑克牌是否连续")
@@ -77,8 +75,17 @@ func main() {
 	//res := answers.FindRepeatNumber(nums)
 	//fmt.Println(res)
 
-	fmt.Println("旋转数组的最小数字")
-	nums := []int{3, 4, 5, 1, 2}
-	res := answers.MinArray(nums)
+	//fmt.Println("旋转数组的最小数字")
+	//nums := []int{3, 4, 5, 1, 2}
+	//res := answers.MinArray(nums)
+	//fmt.Println(res)
+
+	//fmt.Println("旋转数组的最小数字")
+	//var s string = "textbook"
+	//res := answers.HalvesAreAlike(s)
+	//fmt.Println(res)
+
+	fmt.Println("计算力扣银行的钱")
+	res := answers.TotalMoney(10)
 	fmt.Println(res)
 }
