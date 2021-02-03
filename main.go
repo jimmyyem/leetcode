@@ -52,8 +52,18 @@ func main() {
 	//res := answers.ValidMountainArray(arr)
 	//fmt.Println(res)
 
-	fmt.Println("重新排列日志文件")
-	arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
-	res := answers.ReorderLogFiles(arr)
+	//????
+	//fmt.Println("重新排列日志文件")
+	//arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
+	//fmt.Println(arr)
+	//res := answers.ReorderLogFiles(arr)
+	//fmt.Println(res)
+
+	//fmt.Println("左旋转字符串")
+	//res := answers.ReverseLeftWords("abcdefg", 2)
+	//fmt.Println(res)
+
+	fmt.Println("第一个只出现一次的字符")
+	res := answers.FirstUniqChar("sasbadxf")
 	fmt.Println(res)
 }

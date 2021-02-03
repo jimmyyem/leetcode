@@ -1,12 +1,14 @@
 package answers
 
-type S917 []string
+import "sort"
 
-func (b S917) Len() int {
+type S937 []string
+
+func (b S937) Len() int {
 	return len(b)
 }
 
-func (b S917) Less(i, j int) bool {
+func (b S937) Less(i, j int) bool {
 	m, n := 0, 0
 
 	for ; m < len(b); m++ {
@@ -31,9 +33,30 @@ func (b S917) Less(i, j int) bool {
 		}
 	}
 
+	return true
+}
+
+func (b S937) Swap(i, j int) {
+	b[i], b[j] = b[j], b[i]
 }
 
 //https://leetcode-cn.com/problems/reorder-data-in-log-files/
 func ReorderLogFiles(logs []string) []string {
+	var numlogs, wordlogs []string
+	for _, v := range logs {
+		for k := 0; k < len(v); k++ {
+			if v[k] == ' ' {
+				if v[k+1] >= 'a' {
+					wordlogs = append(wordlogs, v)
+				} else {
+					numlogs = append(numlogs, v)
+				}
+				break
+			}
+		}
+	}
+	sort.Sort(S937(wordlogs))
+	res := append(wordlogs, numlogs...)
 
+	return res
 }
