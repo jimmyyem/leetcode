@@ -50,8 +50,7 @@ func main() {
 	//res := answers.ValidMountainArray(arr)
 	//fmt.Println(res)
 
-	//????
-	//fmt.Println("重新排列日志文件")
+	//fmt.Println("????重新排列日志文件")
 	//arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
 	//fmt.Println(arr)
 	//res := answers.ReorderLogFiles(arr)
@@ -85,7 +84,54 @@ func main() {
 	//res := answers.HalvesAreAlike(s)
 	//fmt.Println(res)
 
-	fmt.Println("计算力扣银行的钱")
-	res := answers.TotalMoney(10)
-	fmt.Println(res)
+	//fmt.Println("计算力扣银行的钱")
+	//res := answers.TotalMoney(10)
+	//fmt.Println(res)
+
+	//fmt.Println("计算力扣银行的钱")
+	//res := answers.MaximumTime("??:3?")
+	//fmt.Println(res)
+
+	//fmt.Println("卡车上的最大单元数")
+	//var boxTypes = [][]int{{5, 10}, {2, 5}, {4, 7}, {3, 9}}
+	//res := answers.MaximumUnits(boxTypes, 10)
+	//fmt.Println(res)
+
+	//fmt.Println("找到最高海拔")
+	//var height = []int{-4,-3,-2,-1,4,3,2}
+	//res := answers.LargestAltitude(height)
+	//fmt.Println(res)
+
+	//fmt.Println("????删除排序数组中的重复项")
+	//var elements = []int{0,0,1,1,1,2,2,3,3,4}
+	//res := answers.RemoveDuplicates(elements)
+	//fmt.Println(res)
+
+	fmt.Println("合并两个有序链表")
+	list1 := answers.ListNode{
+		Val: 1,
+		Next: &answers.ListNode{
+			Val: 2,
+			Next: &answers.ListNode{
+				Val:  3,
+				Next: nil,
+			},
+		},
+	}
+	list2 := answers.ListNode{
+		Val: 1,
+		Next: &answers.ListNode{
+			Val: 3,
+			Next: &answers.ListNode{
+				Val:  4,
+				Next: nil,
+			},
+		},
+	}
+	res := answers.MergeTwoLists(&list1, &list2)
+
+	for res != nil {
+		println(res.Val)
+		res = res.Next
+	}
 }
