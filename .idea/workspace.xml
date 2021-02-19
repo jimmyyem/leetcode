@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0915ab4d-1d5d-4c9a-a7c5-b765e3716094" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/goexamples.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,53 +53,34 @@
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/leetcode" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Go Build.go build leetcode">
-    <configuration name="go build goexamples/leetcode" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="goexamples" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/leetcode/twoSum.go" />
-      <package value="goexamples/leetcode" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build leetcode" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="goexamples" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/delay.go" />
-      <package value="leetcode" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go Build.go build leetcode" />
-        <item itemvalue="Go Build.go build goexamples/leetcode" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="460" y="271" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604310103919">
-      <screen x="38" y="23" width="1402" height="877" />
+    <state x="207" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1612506723382">
+      <screen x="47" y="23" width="1393" height="877" />
     </state>
-    <state x="460" y="271" key="#com.intellij.fileTypes.FileTypeChooser/38.23.1402.877/1440.63.1920.1057@38.23.1402.877" timestamp="1604310103919" />
-    <state x="463" y="271" key="#com.intellij.fileTypes.FileTypeChooser/42.23.1398.877/1440.63.1920.1057@42.23.1398.877" timestamp="1604114264199" />
+    <state x="207" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/47.23.1393.877/1440.63.1920.1057@47.23.1393.877" timestamp="1612506723382" />
+    <state x="467" y="266" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613716135873">
+      <screen x="46" y="23" width="1394" height="877" />
+    </state>
+    <state x="467" y="266" key="#com.intellij.fileTypes.FileTypeChooser/46.23.1394.877/1440.63.1920.1057@46.23.1394.877" timestamp="1613716135873" />
     <state x="448" y="111" key="#go_build_leetcode" timestamp="1612148128743">
       <screen x="42" y="23" width="1398" height="877" />
     </state>
     <state x="448" y="111" key="#go_build_leetcode/42.23.1398.877/1440.63.1920.1057@42.23.1398.877" timestamp="1612148128743" />
+    <state x="337" y="62" key="CommitChangelistDialog2" timestamp="1612510130599">
+      <screen x="46" y="23" width="1394" height="877" />
+    </state>
+    <state x="337" y="62" key="CommitChangelistDialog2/46.23.1394.877/1440.63.1920.1057@46.23.1394.877" timestamp="1612510130599" />
     <state width="1356" height="230" key="GridCell.Tab.0.bottom" timestamp="1611742399597">
       <screen x="42" y="23" width="1398" height="877" />
     </state>
@@ -125,17 +105,10 @@
     <state width="500" height="445" key="SwitcherDM" timestamp="1612148595246">
       <screen x="42" y="23" width="1398" height="877" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/38.23.1402.877/1440.63.1920.1057@38.23.1402.877" timestamp="1604310312729" />
-    <state width="500" height="445" key="SwitcherDM/39.23.1401.877/1440.63.1920.1057@39.23.1401.877" timestamp="1604394123108" />
-    <state width="500" height="445" key="SwitcherDM/41.23.1399.877/1440.63.1920.1057@41.23.1399.877" timestamp="1604398682111" />
     <state width="500" height="445" key="SwitcherDM/42.23.1398.877/1440.63.1920.1057@42.23.1398.877" timestamp="1612148595246" />
     <state x="343" y="203" key="Vcs.Push.Dialog.v2" timestamp="1612248046539">
       <screen x="43" y="23" width="1397" height="877" />
     </state>
     <state x="343" y="203" key="Vcs.Push.Dialog.v2/43.23.1397.877/1440.63.1920.1057@43.23.1397.877" timestamp="1612248046539" />
-    <state x="403" y="225" width="675" height="472" key="find.popup" timestamp="1603944332668">
-      <screen x="40" y="23" width="1400" height="877" />
-    </state>
-    <state x="403" y="225" width="675" height="472" key="find.popup/40.23.1400.877/1440.63.1920.1057@40.23.1400.877" timestamp="1603944332668" />
   </component>
 </project>
