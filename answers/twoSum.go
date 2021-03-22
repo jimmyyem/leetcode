@@ -11,7 +11,7 @@ package answers
 // [3,2,4],  9  返回[1,2]
 // https://leetcode-cn.com/problems/two-sum/
 func TwoSum(nums []int, target int) []int {
-	mp := map[int]int{}
+	mp := make(map[int]int, len(nums))
 	for idx, value := range nums {
 		diffValue := target - value
 		diffIndex, found := mp[diffValue]

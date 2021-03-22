@@ -1,8 +1,7 @@
-package main
+package hashmap
 
 import (
 	"fmt"
-	"leetcode/hashmap"
 	"strconv"
 	"testing"
 	"time"
@@ -35,8 +34,8 @@ func Test_HashMap(t *testing.T) {
 		return a == b
 	}
 
-	hasher := hashmap.NewCrc64Hashful(fnEquals)
-	hm := hashmap.NewHashMap(hasher, 2)
+	hasher := NewCrc64Hashful(fnEquals)
+	hm := NewHashMap(hasher, 2)
 
 	hm.Put(1, "10")
 	t.Log(hm)

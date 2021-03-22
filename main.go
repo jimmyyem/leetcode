@@ -1,7 +1,6 @@
 package main
 
 import "leetcode/answers"
-import "fmt"
 
 func main() {
 	//fmt.Println("5张扑克牌是否连续")
@@ -102,36 +101,92 @@ func main() {
 	//res := answers.LargestAltitude(height)
 	//fmt.Println(res)
 
-	//fmt.Println("????删除排序数组中的重复项")
+	//26. 删除有序数组中的重复项
 	//var elements = []int{0,0,1,1,1,2,2,3,3,4}
 	//res := answers.RemoveDuplicates(elements)
-	//fmt.Println(res)
+	//println(res)
 
-	fmt.Println("合并两个有序链表")
-	list1 := answers.ListNode{
-		Val: 1,
-		Next: &answers.ListNode{
-			Val: 2,
-			Next: &answers.ListNode{
-				Val:  3,
-				Next: nil,
-			},
-		},
-	}
-	list2 := answers.ListNode{
-		Val: 1,
-		Next: &answers.ListNode{
-			Val: 3,
-			Next: &answers.ListNode{
-				Val:  4,
-				Next: nil,
-			},
-		},
-	}
-	res := answers.MergeTwoLists(&list1, &list2)
+	//11. 盛最多水的容器
+	//var points = []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
+	//res := answers.MaxArea(points)
+	//println(res)
 
-	for res != nil {
-		println(res.Val)
-		res = res.Next
-	}
+	//15. 三数之和
+	//var nums = []int{-2, 0, 3, -1, 4, 0, 3, 4, 1, 1, 1, -3, -5, 4, 0}
+	//answers.ThreeSum(nums)
+
+	//704. 二分查找
+	//var nums = []int{-1, 0, 3, 5, 9, 12}
+	//println(answers.BinarySearch(nums, 9))
+
+	//9. 回文数
+	println(answers.IsPalindrome(1234))
+
+	//fmt.Println("合并两个有序链表")
+	//list1 := answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 2,
+	//		Next: &answers.ListNode{
+	//			Val:  3,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//list2 := answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 3,
+	//		Next: &answers.ListNode{
+	//			Val:  4,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//res := answers.MergeTwoLists(&list1, &list2)
+	//
+	//for res != nil {
+	//	println(res.Val)
+	//	res = res.Next
+	//}
+
+	//283.移动零
+	//var nums = []int{0, 1, 0, 3, 12}
+	//answers.MoveZeroes(nums)
+
+	//1758. 生成交替二进制字符串的最少操作数
+	//var s = "10010100"
+	//fmt.Println(answers.MinOperations(s))
+
+	//7. 整数反转
+	//res := answers.Reverse(-123)
+	//println(res)
+
+	//2. 两数相加
+	//list1 := answers.ListNode{
+	//	Val: 2,
+	//	Next: &answers.ListNode{
+	//		Val: 4,
+	//		Next: &answers.ListNode{
+	//			Val:  3,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//list2 := answers.ListNode{
+	//	Val: 5,
+	//	Next: &answers.ListNode{
+	//		Val: 6,
+	//		Next: &answers.ListNode{
+	//			Val:  4,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//res := answers.AddTwoNumbers(&list1, &list2)
+	//
+	//for res != nil {
+	//	println(res.Val, res.Next)
+	//	res = res.Next
+	//}
 }
