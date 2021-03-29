@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0915ab4d-1d5d-4c9a-a7c5-b765e3716094" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/answers/binarySearch.go" beforeDir="false" afterPath="$PROJECT_DIR$/answers/binarySearch.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/answers/findRepeatNumber.go" beforeDir="false" afterPath="$PROJECT_DIR$/answers/findRepeatNumber.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/answers/isStraight.go" beforeDir="false" afterPath="$PROJECT_DIR$/answers/isStraight.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/answers/minArray.go" beforeDir="false" afterPath="$PROJECT_DIR$/answers/minArray.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/answers/replaceSpace.go" beforeDir="false" afterPath="$PROJECT_DIR$/answers/replaceSpace.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/answers/searchInsert.go" beforeDir="false" afterPath="$PROJECT_DIR$/answers/searchInsert.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

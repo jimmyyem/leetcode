@@ -9,11 +9,9 @@ func ReplaceSpace(s string) string {
 	for ; i < len(s); i++ {
 		if s[i] == ' ' {
 			res[idx] = '%'
-			idx++
-			res[idx] = '2'
-			idx++
-			res[idx] = '0'
-			idx++
+			res[idx+1] = '2'
+			res[idx+2] = '0'
+			idx += 3
 		} else {
 			res[idx] = s[i]
 			idx += 1

@@ -4,16 +4,6 @@ package answers
 //35.搜索插入位置
 
 func SearchInsert(nums []int, target int) int {
-	//for idx, val := range nums {
-	//	if val == target {
-	//		return idx
-	//	} else if val > target {
-	//		return idx
-	//	}
-	//}
-	//
-	//return len(nums)
-
 	low, high := 0, len(nums)-1
 	for low <= high {
 		mid := low + (high-low)>>1

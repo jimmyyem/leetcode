@@ -25,70 +25,70 @@ func main() {
 	//var nums = []int{-1, 2, 1, -4}
 	//println(answers.ThreeSumClosest(nums, 1))
 
-	//fmt.Println("5张扑克牌是否连续")
+	//println("5张扑克牌是否连续")
 	//nums := []int{0, 0, 0, 19, 5}
 	//flags := answers.IsStraight(nums)
-	//fmt.Println(flags)
+	//println(flags)
 
-	//fmt.Println("两数之和")
+	//println("两数之和")
 	//nums := []int{3, 2, 4}
 	//target := 6
 	//res := answers.TwoSum(nums, target)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("验证IP是否合法")
+	//println("验证IP是否合法")
 	//flags := answers.ValidIPAddress("192.0.0.1")
-	//fmt.Println(flags)
+	//println(flags)
 
-	//fmt.Println("最长共有前缀")
+	//println("最长共有前缀")
 	//var strs []string
 	//strs = append(strs, "hahlo")
 	//strs = append(strs, "haha")
 	//strs = append(strs, "haho")
 	//prefix := answers.LongestCommonPrefix(strs)
-	//fmt.Println(prefix)
+	//println(prefix)
 
-	//fmt.Println("罗马数字转整数")
+	//println("罗马数字转整数")
 	//res := answers.RomanToInt("IIV")
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("计算无符号二进制数里1的个数")
+	//println("计算无符号二进制数里1的个数")
 	//var num uint32 = 000000000100
-	//fmt.Println(answers.HammingWeight(num))
+	//println(answers.HammingWeight(num))
 
-	//fmt.Println("颠倒二进制数")
+	//println("颠倒二进制数")
 	//var num uint32 = 4294967293
 	//res := answers.ReverseBits(num)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("判断是否是快乐数")
+	//println("判断是否是快乐数")
 	//res := answers.IsHappy(2)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("判断是否是山脉数组")
+	//println("判断是否是山脉数组")
 	//arr := []int{}
 	//arr = append(arr,  1,2,3,4)
 	//res := answers.ValidMountainArray(arr)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("????重新排列日志文件")
+	//println("????重新排列日志文件")
 	//arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
-	//fmt.Println(arr)
+	//println(arr)
 	//res := answers.ReorderLogFiles(arr)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("左旋转字符串")
+	//println("左旋转字符串")
 	//res := answers.ReverseLeftWords("abcdefg", 2)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("第一个只出现一次的字符")
+	//println("第一个只出现一次的字符")
 	//res := answers.FirstUniqChar("sasbadxf")
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("0～n-1中缺失的数字")
+	//println("0～n-1中缺失的数字")
 	//nums := []int{0, 1, 2, 3, 4, 5, 6, 7, 9}
 	//res := answers.MissingNumber(nums)
-	//fmt.Println(res)
+	//println(res)
 
 	//剑指 Offer 03. 数组中重复的数字
 	//nums := []int{2, 3, 1, 0, 2, 5, 3}
@@ -96,37 +96,37 @@ func main() {
 	//println(res)
 
 	//剑指 Offer 05. 替换空格
-	//var s = "We are happy."
-	//res := answers.ReplaceSpace(s)
-	//println(res)
+	var s = "We are happy."
+	res := answers.ReplaceSpace(s)
+	println(res)
 
 	//11. 旋转数组的最小数字
 	//nums := []int{3, 4, 5, 1, 2}
 	//res := answers.MinArray(nums)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("旋转数组的最小数字")
+	//println("旋转数组的最小数字")
 	//var s string = "textbook"
 	//res := answers.HalvesAreAlike(s)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("计算力扣银行的钱")
+	//println("计算力扣银行的钱")
 	//res := answers.TotalMoney(10)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("计算力扣银行的钱")
+	//println("计算力扣银行的钱")
 	//res := answers.MaximumTime("??:3?")
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("卡车上的最大单元数")
+	//println("卡车上的最大单元数")
 	//var boxTypes = [][]int{{5, 10}, {2, 5}, {4, 7}, {3, 9}}
 	//res := answers.MaximumUnits(boxTypes, 10)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("找到最高海拔")
+	//println("找到最高海拔")
 	//var height = []int{-4,-3,-2,-1,4,3,2}
 	//res := answers.LargestAltitude(height)
-	//fmt.Println(res)
+	//println(res)
 
 	//26. 删除有序数组中的重复项
 	//var elements = []int{0,0,1,1,1,2,2,3,3,4}
@@ -149,9 +149,9 @@ func main() {
 	//println(res)
 
 	//154. 寻找旋转排序数组中的最小值
-	var elements = []int{10, 1, 10, 10, 10}
-	res := answers.FindMin(elements)
-	println(res)
+	//var elements = []int{10, 1, 10, 10, 10}
+	//res := answers.FindMin(elements)
+	//println(res)
 
 	//704. 二分查找
 	//var nums = []int{-1, 0, 3, 5, 9, 12}
@@ -163,7 +163,7 @@ func main() {
 
 	//1758. 生成交替二进制字符串的最少操作数
 	//var s = "10010100"
-	//fmt.Println(answers.MinOperations(s))
+	//println(answers.MinOperations(s))
 
 	//2. 两数相加
 	//list1 := answers.ListNode{
@@ -193,7 +193,7 @@ func main() {
 	//	res = res.Next
 	//}
 
-	//fmt.Println("合并两个有序链表")
+	//println("合并两个有序链表")
 	//list1 := answers.ListNode{
 	//	Val: 1,
 	//	Next: &answers.ListNode{
