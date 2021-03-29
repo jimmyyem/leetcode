@@ -3,6 +3,28 @@ package main
 import "leetcode/answers"
 
 func main() {
+	//runtime.GOMAXPROCS(8)
+
+	//7. 整数反转
+	//res := answers.Reverse(-123)
+	//println(res)
+
+	//9. 回文数
+	//println(answers.IsPalindrome(1234))
+
+	//11. 盛最多水的容器
+	//var points = []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
+	//res := answers.MaxArea(points)
+	//println(res)
+
+	//15. 三数之和
+	//var nums = []int{-2, 0, 3, -1, 4, 0, 3, 4, 1, 1, 1, -3, -5, 4, 0}
+	//answers.ThreeSum(nums)
+
+	//16.最接近的3数之和
+	//var nums = []int{-1, 2, 1, -4}
+	//println(answers.ThreeSumClosest(nums, 1))
+
 	//fmt.Println("5张扑克牌是否连续")
 	//nums := []int{0, 0, 0, 19, 5}
 	//flags := answers.IsStraight(nums)
@@ -68,12 +90,17 @@ func main() {
 	//res := answers.MissingNumber(nums)
 	//fmt.Println(res)
 
-	//fmt.Println("数组中重复的数字")
-	//nums := []int{0, 1, 2, 3, 4, 11, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}
+	//剑指 Offer 03. 数组中重复的数字
+	//nums := []int{2, 3, 1, 0, 2, 5, 3}
 	//res := answers.FindRepeatNumber(nums)
-	//fmt.Println(res)
+	//println(res)
 
-	//fmt.Println("旋转数组的最小数字")
+	//剑指 Offer 05. 替换空格
+	//var s = "We are happy."
+	//res := answers.ReplaceSpace(s)
+	//println(res)
+
+	//11. 旋转数组的最小数字
 	//nums := []int{3, 4, 5, 1, 2}
 	//res := answers.MinArray(nums)
 	//fmt.Println(res)
@@ -106,49 +133,29 @@ func main() {
 	//res := answers.RemoveDuplicates(elements)
 	//println(res)
 
-	//11. 盛最多水的容器
-	//var points = []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
-	//res := answers.MaxArea(points)
+	//27. 删除元素
+	//var elements = []int{3, 2, 2, 3}
+	//res := answers.RemoveElement(elements, 2)
 	//println(res)
 
-	//15. 三数之和
-	//var nums = []int{-2, 0, 3, -1, 4, 0, 3, 4, 1, 1, 1, -3, -5, 4, 0}
-	//answers.ThreeSum(nums)
+	//33.搜索旋转排序数组
+	//var elements = []int{3, 4, 5, 6, 0, 1, 2}
+	//res := answers.Search(elements, 2)
+	//println(res)
+
+	//35.搜索插入位置
+	//var elements = []int{1, 3, 5, 6}
+	//res := answers.SearchInsert(elements, 8)
+	//println(res)
+
+	//154. 寻找旋转排序数组中的最小值
+	var elements = []int{10, 1, 10, 10, 10}
+	res := answers.FindMin(elements)
+	println(res)
 
 	//704. 二分查找
 	//var nums = []int{-1, 0, 3, 5, 9, 12}
 	//println(answers.BinarySearch(nums, 9))
-
-	//9. 回文数
-	println(answers.IsPalindrome(1234))
-
-	//fmt.Println("合并两个有序链表")
-	//list1 := answers.ListNode{
-	//	Val: 1,
-	//	Next: &answers.ListNode{
-	//		Val: 2,
-	//		Next: &answers.ListNode{
-	//			Val:  3,
-	//			Next: nil,
-	//		},
-	//	},
-	//}
-	//list2 := answers.ListNode{
-	//	Val: 1,
-	//	Next: &answers.ListNode{
-	//		Val: 3,
-	//		Next: &answers.ListNode{
-	//			Val:  4,
-	//			Next: nil,
-	//		},
-	//	},
-	//}
-	//res := answers.MergeTwoLists(&list1, &list2)
-	//
-	//for res != nil {
-	//	println(res.Val)
-	//	res = res.Next
-	//}
 
 	//283.移动零
 	//var nums = []int{0, 1, 0, 3, 12}
@@ -157,10 +164,6 @@ func main() {
 	//1758. 生成交替二进制字符串的最少操作数
 	//var s = "10010100"
 	//fmt.Println(answers.MinOperations(s))
-
-	//7. 整数反转
-	//res := answers.Reverse(-123)
-	//println(res)
 
 	//2. 两数相加
 	//list1 := answers.ListNode{
@@ -187,6 +190,34 @@ func main() {
 	//
 	//for res != nil {
 	//	println(res.Val, res.Next)
+	//	res = res.Next
+	//}
+
+	//fmt.Println("合并两个有序链表")
+	//list1 := answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 2,
+	//		Next: &answers.ListNode{
+	//			Val:  3,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//list2 := answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 3,
+	//		Next: &answers.ListNode{
+	//			Val:  4,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//res := answers.MergeTwoLists(&list1, &list2)
+	//
+	//for res != nil {
+	//	println(res.Val)
 	//	res = res.Next
 	//}
 }

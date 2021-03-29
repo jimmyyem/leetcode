@@ -1,11 +1,5 @@
 package answers
 
-//https://leetcode-cn.com/problems/happy-number/
-import (
-	"fmt"
-	"math"
-)
-
 //func main() {
 //	fmt.Println("5张扑克牌是否连续")
 //	nums := []int{0, 0, 0, 19, 5}
@@ -17,11 +11,13 @@ import (
 // https://leetcode-cn.com/problems/bu-ke-pai-zhong-de-shun-zi-lcof/
 func IsStraight(nums []int) bool {
 	mp := make(map[int]int)
-	var max float64 = 0
-	var min float64 = 14
+	var (
+		max float64 = 0
+		min float64 = 14
+	)
 
 	for _, value := range nums {
-		fmt.Println(value)
+		//fmt.Println(value)
 		if value == 0 {
 			continue
 		}
@@ -31,9 +27,23 @@ func IsStraight(nums []int) bool {
 		}
 		mp[value] = 1
 
-		max = math.Max(float64(value), max)
-		min = math.Min(float64(value), min)
+		max = maxFn(float64(value), max)
+		min = minFn(float64(value), min)
 	}
-	fmt.Println(mp, max, min)
+	//fmt.Println(mp, max, min)
 	return max-min < 5
+}
+
+func maxFn(x, y float64) float64 {
+	if x > y {
+		return x
+	}
+	return y
+}
+
+func minFn(x, y float64) float64 {
+	if x > y {
+		return y
+	}
+	return x
 }
