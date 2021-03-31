@@ -187,14 +187,19 @@ func main() {
 	//res := answers.SearchInsert(elements, 8)
 	//println(res)
 
+	//53.最大子序列
+	nums := []int{-2, 1, -3, 4, -1, 2, 1, -5, 4}
+	res := answers.MaxSubArray(nums)
+	println(res)
+
 	//56. 合并区间
-	var sections = [][]int{
-		[]int{1, 4},
-		[]int{0, 2},
-		[]int{3, 5},
-	}
-	res := answers.MergeSection(sections)
-	dumpSlice2(res)
+	//var sections = [][]int{
+	//	[]int{1, 4},
+	//	[]int{0, 2},
+	//	[]int{3, 5},
+	//}
+	//res := answers.MergeSection(sections)
+	//dumpSlice2(res)
 
 	//88.合并两个有序数组
 	//nums1 := []int{1, 2, 3, 0, 0, 0}
