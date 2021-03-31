@@ -1,33 +1,24 @@
 package answers
 
-func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
-	if len(nums1) < len(nums2) {
-		return findMedianSortedArrays(nums2, nums1)
+import "sort"
+
+//https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
+//4. 寻找两个正序数组的中位数
+func FindMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+	merge := make([]int, 0, len(nums1)+len(nums2))
+	merge = append(merge, nums1...)
+	merge = append(merge, nums2...)
+	sort.Ints(merge)
+	if len(merge)%2 == 1 {
+		return float64(merge[len(merge)/2])
 	}
+	return (float64(merge[len(merge)/2]) + float64(merge[len(merge)/2-1])) / 2
 
-	low, high, k, nums1Mid, nums2Mid := 0, len(nums1), (len(nums1)+len(nums2)+1)/2, 0, 0
-	for low < high {
-		nums1Mid = low + (high-low)>>1
-		nums2Mid = k - nums1Mid
+	/**
+	1. nums1短，中位数在nums2里
+	2. nums1长，中位数在nums1里
+	3.
+	*/
 
-		if nums1Mid > 0 && nums1[nums1Mid-1] > nums2[nums2Mid] {
 
-		}
-	}
-
-	return float64(1)
-}
-
-func min(x, y int) int {
-	if x < y {
-		return y
-	}
-	return x
-}
-
-func max(x, y int) int {
-	if x > y {
-		return y
-	}
-	return y
 }

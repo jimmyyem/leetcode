@@ -1,48 +1,25 @@
 package answers
 
-import (
-	"math"
-)
-
 //https://leetcode-cn.com/problems/add-two-numbers/
 //2.两数相加
 func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	left, right, deep, sum := 0, 0, 0, 0
+	list := &ListNode{0, nil}
+	//这里用一个result，只是为了后面返回节点方便，并无他用
+	result := list
 
-	for l1 != nil {
-		left += l1.Val * int(math.Pow10(deep))
-		deep++
-		l1 = l1.Next
-	}
-	deep = 0
-	for l2 != nil {
-		right += l2.Val * int(math.Pow10(deep))
-		deep++
-		l2 = l2.Next
-	}
-
-	start := &ListNode{
-		Val:  0,
-		Next: nil,
-	}
-	head := start
-	sum = left + right
-
-	if sum > 0 {
-		for sum > 0 {
-			start.Next = &ListNode{
-				Val:  sum % 10,
-				Next: nil,
-			}
-			start = start.Next
-			sum /= 10
+	tmp := 0
+	for l1 != nil || l2 != nil || tmp != 0 {
+		if l1 != nil {
+			tmp += l1.Val
+			l1 = l1.Next
 		}
-	} else {
-		head.Next = &ListNode{
-			Val:  0,
-			Next: nil,
+		if l2 != nil {
+			tmp += l2.Val
+			l2 = l2.Next
 		}
+		list.Next = &ListNode{tmp % 10, nil}
+		tmp = tmp / 10
+		list = list.Next
 	}
-
-	return head.Next
+	return result.Next
 }

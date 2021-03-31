@@ -1,9 +1,49 @@
 package main
 
-import "leetcode/answers"
+import (
+	"fmt"
+	"leetcode/answers"
+)
 
 func main() {
 	//runtime.GOMAXPROCS(8)
+
+	//1. 两数之和
+	//nums := []int{3, 2, 4}
+	//target := 6
+	//res := answers.TwoSum(nums, target)
+	//println(res)
+
+	//2. 两数相加
+	//list1 := answers.ListNode{
+	//	Val: 2,
+	//	Next: &answers.ListNode{
+	//		Val: 4,
+	//		Next: &answers.ListNode{
+	//			Val:  3,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//list2 := answers.ListNode{
+	//	Val: 5,
+	//	Next: &answers.ListNode{
+	//		Val: 6,
+	//		Next: &answers.ListNode{
+	//			Val:  4,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//res := answers.AddTwoNumbers(&list1, &list2)
+	//dumpList(res)
+
+	//3. 无重复字符的最长子串
+
+	//???4. 寻找两个正序数组的中位数
+	//nums1 := []int{1, 2, 3, 4, 5}
+	//nums2 := []int{6}
+	//println(answers.FindMedianSortedArrays(nums1, nums2))
 
 	//7. 整数反转
 	//res := answers.Reverse(-123)
@@ -29,12 +69,6 @@ func main() {
 	//nums := []int{0, 0, 0, 19, 5}
 	//flags := answers.IsStraight(nums)
 	//println(flags)
-
-	//println("两数之和")
-	//nums := []int{3, 2, 4}
-	//target := 6
-	//res := answers.TwoSum(nums, target)
-	//println(res)
 
 	//println("验证IP是否合法")
 	//flags := answers.ValidIPAddress("192.0.0.1")
@@ -96,9 +130,9 @@ func main() {
 	//println(res)
 
 	//剑指 Offer 05. 替换空格
-	var s = "We are happy."
-	res := answers.ReplaceSpace(s)
-	println(res)
+	//var s = "We are happy."
+	//res := answers.ReplaceSpace(s)
+	//println(res)
 
 	//11. 旋转数组的最小数字
 	//nums := []int{3, 4, 5, 1, 2}
@@ -138,6 +172,11 @@ func main() {
 	//res := answers.RemoveElement(elements, 2)
 	//println(res)
 
+	//31. 下一个排列
+	//nums := []int{1, 2, 3, 4, 6, 5}
+	//answers.NextPermutation(nums)
+	//dumpSlice(nums)
+
 	//33.搜索旋转排序数组
 	//var elements = []int{3, 4, 5, 6, 0, 1, 2}
 	//res := answers.Search(elements, 2)
@@ -147,6 +186,21 @@ func main() {
 	//var elements = []int{1, 3, 5, 6}
 	//res := answers.SearchInsert(elements, 8)
 	//println(res)
+
+	//56. 合并区间
+	var sections = [][]int{
+		[]int{1, 4},
+		[]int{0, 2},
+		[]int{3, 5},
+	}
+	res := answers.MergeSection(sections)
+	dumpSlice2(res)
+
+	//88.合并两个有序数组
+	//nums1 := []int{1, 2, 3, 0, 0, 0}
+	//nums2 := []int{2, 5, 6}
+	//answers.MergeArray(nums1, 3, nums2, 3)
+	//dumpSlice(nums1)
 
 	//154. 寻找旋转排序数组中的最小值
 	//var elements = []int{10, 1, 10, 10, 10}
@@ -220,4 +274,23 @@ func main() {
 	//	println(res.Val)
 	//	res = res.Next
 	//}
+}
+
+func dumpSlice2(slice [][]int) {
+	for _, val := range slice {
+		fmt.Printf("%+v", val)
+	}
+}
+
+func dumpSlice(slice []int) {
+	for idx, val := range slice {
+		println(idx, "=>", val)
+	}
+}
+
+func dumpList(res *answers.ListNode) {
+	for res != nil {
+		println(res.Val, res.Next)
+		res = res.Next
+	}
 }
