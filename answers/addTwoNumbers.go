@@ -21,5 +21,6 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		tmp = tmp / 10
 		list = list.Next
 	}
+
 	return result.Next
 }

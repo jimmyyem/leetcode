@@ -188,9 +188,9 @@ func main() {
 	//println(res)
 
 	//53.最大子序列
-	nums := []int{-2, 1, -3, 4, -1, 2, 1, -5, 4}
-	res := answers.MaxSubArray(nums)
-	println(res)
+	//nums := []int{-2, 1, -3, 4, -1, 2, 1, -5, 4}
+	//res := answers.MaxSubArray(nums)
+	//println(res)
 
 	//56. 合并区间
 	//var sections = [][]int{
@@ -206,6 +206,10 @@ func main() {
 	//nums2 := []int{2, 5, 6}
 	//answers.MergeArray(nums1, 3, nums2, 3)
 	//dumpSlice(nums1)
+
+	//151. 翻转字符串里的单词
+	var s = "  hello world  "
+	println(answers.ReverseWords(s))
 
 	//154. 寻找旋转排序数组中的最小值
 	//var elements = []int{10, 1, 10, 10, 10}
@@ -223,34 +227,6 @@ func main() {
 	//1758. 生成交替二进制字符串的最少操作数
 	//var s = "10010100"
 	//println(answers.MinOperations(s))
-
-	//2. 两数相加
-	//list1 := answers.ListNode{
-	//	Val: 2,
-	//	Next: &answers.ListNode{
-	//		Val: 4,
-	//		Next: &answers.ListNode{
-	//			Val:  3,
-	//			Next: nil,
-	//		},
-	//	},
-	//}
-	//list2 := answers.ListNode{
-	//	Val: 5,
-	//	Next: &answers.ListNode{
-	//		Val: 6,
-	//		Next: &answers.ListNode{
-	//			Val:  4,
-	//			Next: nil,
-	//		},
-	//	},
-	//}
-	//res := answers.AddTwoNumbers(&list1, &list2)
-	//
-	//for res != nil {
-	//	println(res.Val, res.Next)
-	//	res = res.Next
-	//}
 
 	//println("合并两个有序链表")
 	//list1 := answers.ListNode{
