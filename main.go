@@ -45,9 +45,15 @@ func main() {
 	//nums2 := []int{6}
 	//println(answers.FindMedianSortedArrays(nums1, nums2))
 
+	//5.最长回文子串
+	println(answers.LongestPalindrome("babad"))
+
 	//7. 整数反转
 	//res := answers.Reverse(-123)
 	//println(res)
+
+	//8.字符串转整数
+	//println(answers.MyAtoi(" +12"))
 
 	//9. 回文数
 	//println(answers.IsPalindrome(1234))
@@ -208,13 +214,17 @@ func main() {
 	//dumpSlice(nums1)
 
 	//151. 翻转字符串里的单词
-	var s = "  hello world  "
-	println(answers.ReverseWords(s))
+	//var s = "  hello world  "
+	//println(answers.ReverseWords(s))
 
 	//154. 寻找旋转排序数组中的最小值
 	//var elements = []int{10, 1, 10, 10, 10}
 	//res := answers.FindMin(elements)
 	//println(res)
+
+	//273.整数转换英文表示
+	//num := 1234567891
+	//println(answers.NumberToWords(num))
 
 	//704. 二分查找
 	//var nums = []int{-1, 0, 3, 5, 9, 12}

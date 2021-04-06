@@ -5,6 +5,13 @@ import "sort"
 //https://leetcode-cn.com/problems/merge-intervals/
 //88.合并区间
 func MergeSection(intervals [][]int) [][]int {
+	max := func(x, y int) int {
+		if x > y {
+			return x
+		}
+		return y
+	}
+
 	sort.Slice(intervals, func(x, y int) bool {
 		return intervals[x][0] < intervals[y][0]
 	})
@@ -23,11 +30,4 @@ func MergeSection(intervals [][]int) [][]int {
 	res = append(res, prev)
 
 	return res
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
 }

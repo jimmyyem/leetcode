@@ -10,6 +10,21 @@ package answers
 // 5张扑克牌判断是否连续
 // https://leetcode-cn.com/problems/bu-ke-pai-zhong-de-shun-zi-lcof/
 func IsStraight(nums []int) bool {
+	maxFn := func(x, y float64) float64 {
+		if x > y {
+		return x
+	}
+		return y
+	}
+	minFn := func(x, y float64) float64 {
+		if x > y {
+		return y
+	}
+		return x
+	}
+
+
+
 	mp := make(map[int]int)
 	var (
 		max float64 = 0
@@ -32,18 +47,4 @@ func IsStraight(nums []int) bool {
 	}
 	//fmt.Println(mp, max, min)
 	return max-min < 5
-}
-
-func maxFn(x, y float64) float64 {
-	if x > y {
-		return x
-	}
-	return y
-}
-
-func minFn(x, y float64) float64 {
-	if x > y {
-		return y
-	}
-	return x
 }
