@@ -46,7 +46,7 @@ func main() {
 	//println(answers.FindMedianSortedArrays(nums1, nums2))
 
 	//5.最长回文子串
-	println(answers.LongestPalindrome("babad"))
+	//println(answers.LongestPalindrome("babad"))
 
 	//7. 整数反转
 	//res := answers.Reverse(-123)
@@ -63,6 +63,10 @@ func main() {
 	//res := answers.MaxArea(points)
 	//println(res)
 
+	//13.罗马数字转整数
+	//res := answers.RomanToInt("IIV")
+	//println(res)
+
 	//15. 三数之和
 	//var nums = []int{-2, 0, 3, -1, 4, 0, 3, 4, 1, 1, 1, -3, -5, 4, 0}
 	//answers.ThreeSum(nums)
@@ -70,6 +74,22 @@ func main() {
 	//16.最接近的3数之和
 	//var nums = []int{-1, 2, 1, -4}
 	//println(answers.ThreeSumClosest(nums, 1))
+
+	//17.电话号码的字母组合
+	//digits := "23"
+	//res := answers.LetterCombinations(digits)
+	//dumpSliceString(res)
+
+	//42.接雨水
+	nums := []int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}
+	println(answers.Trap(nums))
+
+	//46.全排列
+	//nums := []int{
+	//	1, 2, 3,
+	//}
+	//res := answers.Permute(nums)
+	//dumpSlice2(res)
 
 	//println("5张扑克牌是否连续")
 	//nums := []int{0, 0, 0, 19, 5}
@@ -88,10 +108,6 @@ func main() {
 	//prefix := answers.LongestCommonPrefix(strs)
 	//println(prefix)
 
-	//println("罗马数字转整数")
-	//res := answers.RomanToInt("IIV")
-	//println(res)
-
 	//println("计算无符号二进制数里1的个数")
 	//var num uint32 = 000000000100
 	//println(answers.HammingWeight(num))
@@ -101,11 +117,11 @@ func main() {
 	//res := answers.ReverseBits(num)
 	//println(res)
 
-	//println("判断是否是快乐数")
+	//202. 快乐数
 	//res := answers.IsHappy(2)
 	//println(res)
 
-	//println("判断是否是山脉数组")
+	//941. 有效的山脉数组
 	//arr := []int{}
 	//arr = append(arr,  1,2,3,4)
 	//res := answers.ValidMountainArray(arr)
@@ -274,6 +290,12 @@ func dumpSlice2(slice [][]int) {
 }
 
 func dumpSlice(slice []int) {
+	for idx, val := range slice {
+		println(idx, "=>", val)
+	}
+}
+
+func dumpSliceString(slice []string) {
 	for idx, val := range slice {
 		println(idx, "=>", val)
 	}

@@ -1,5 +1,7 @@
 package answers
 
+//https://leetcode-cn.com/problems/happy-number/
+//202. 快乐数
 func IsHappy(n int) bool {
 	var (
 		slow int = n

@@ -1,6 +1,7 @@
 package answers
 
 //https://leetcode-cn.com/problems/valid-mountain-array/
+//941. 有效的山脉数组
 func ValidMountainArray(arr []int) bool {
 	var middle int
 
