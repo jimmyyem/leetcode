@@ -2,45 +2,8 @@ package answers
 
 import "sort"
 
-type S937 []string
-
-func (b S937) Len() int {
-	return len(b)
-}
-
-func (b S937) Less(i, j int) bool {
-	m, n := 0, 0
-
-	for ; m < len(b); m++ {
-		if b[i][m] == ' ' {
-			break
-		}
-	}
-	for ; n < len(b); n++ {
-		if b[i][n] == ' ' {
-			break
-		}
-	}
-
-	for m < len(b[i]) && n < len(b[i]) {
-		if b[i][m] < b[i][n] {
-			return true
-		} else if b[i][m] > b[i][n] {
-			return false
-		} else {
-			m++
-			n++
-		}
-	}
-
-	return true
-}
-
-func (b S937) Swap(i, j int) {
-	b[i], b[j] = b[j], b[i]
-}
-
 //https://leetcode-cn.com/problems/reorder-data-in-log-files/
+//937. 重新排列日志文件
 func ReorderLogFiles(logs []string) []string {
 	var numlogs, wordlogs []string
 	for _, v := range logs {
@@ -57,6 +20,51 @@ func ReorderLogFiles(logs []string) []string {
 	}
 	sort.Sort(S937(wordlogs))
 	res := append(wordlogs, numlogs...)
-
 	return res
 }
+
+type S937 []string
+func (b S937) Len() int { return len(b) }
+func (b S937) Less(i, j int) bool {
+	m, n := 0, 0
+	//找到第一个空白
+	for ; m < len(b[i]); m++ {
+		if b[i][m] == ' ' {
+			break
+		}
+	}
+	for ; n < len(b[j]); n++ {
+		if b[j][n] == ' ' {
+			break
+		}
+	}
+	//判断空白符后的元素大小（如果都一样，会判定到最后）
+	for m < len(b[i]) && n < len(b[j]) {
+		if b[i][m] < b[j][n] {
+			return true
+		} else if b[i][m] > b[j][n] {
+			return false
+		} else {
+			m++
+			n++
+		}
+	}
+	//判定到最后了，这时先看字符串长度，长度短的排在前面
+	if len(b[i])-m != len(b[j])-n {
+		return len(b[i])-m < len(b[j])-n
+	} else {
+		//说明长度也一样，这时候判断空白符前面的元素
+		t := 0
+		for t < len(b[i]) && t < len(b[j]) {
+			if b[i][t] < b[j][t] {
+				return true
+			} else if b[i][t] > b[j][t] {
+				return false
+			} else {
+				t++
+			}
+		}
+		return true
+	}
+}
+func (b S937) Swap(i, j int) { b[i], b[j] = b[j], b[i] }

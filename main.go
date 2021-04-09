@@ -121,16 +121,16 @@ func main() {
 	//res := answers.IsHappy(2)
 	//println(res)
 
+	//937. 重新排列日志文件
+	arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
+	println(arr)
+	res := answers.ReorderLogFiles(arr)
+	dumpSliceString(res)
+
 	//941. 有效的山脉数组
 	//arr := []int{}
 	//arr = append(arr,  1,2,3,4)
 	//res := answers.ValidMountainArray(arr)
-	//println(res)
-
-	//println("????重新排列日志文件")
-	//arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
-	//println(arr)
-	//res := answers.ReorderLogFiles(arr)
 	//println(res)
 
 	//println("左旋转字符串")
