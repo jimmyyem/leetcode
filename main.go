@@ -81,8 +81,8 @@ func main() {
 	//dumpSliceString(res)
 
 	//42.接雨水
-	nums := []int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}
-	println(answers.Trap(nums))
+	//nums := []int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}
+	//println(answers.Trap(nums))
 
 	//46.全排列
 	//nums := []int{
@@ -121,11 +121,44 @@ func main() {
 	//res := answers.IsHappy(2)
 	//println(res)
 
+	//226.翻转二叉树
+	list1 := &answers.TreeNode{
+		Val: 4,
+		Left: &answers.TreeNode{
+			Val: 2,
+			Left: &answers.TreeNode{
+				Val:   1,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &answers.TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &answers.TreeNode{
+			Val: 7,
+			Left: &answers.TreeNode{
+				Val:   6,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &answers.TreeNode{
+				Val:   9,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+	res := answers.InvertTree(list1)
+	dumpTreeList(res)
+
 	//937. 重新排列日志文件
-	arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
-	println(arr)
-	res := answers.ReorderLogFiles(arr)
-	dumpSliceString(res)
+	//arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
+	//println(arr)
+	//res := answers.ReorderLogFiles(arr)
+	//dumpSliceString(res)
 
 	//941. 有效的山脉数组
 	//arr := []int{}
@@ -305,5 +338,19 @@ func dumpList(res *answers.ListNode) {
 	for res != nil {
 		println(res.Val, res.Next)
 		res = res.Next
+	}
+}
+
+func dumpTreeList(res *answers.TreeNode) {
+	if res != nil {
+		fmt.Printf("val is %d\n", res.Val)
+		if res.Left != nil {
+			dumpTreeList(res.Left)
+		}
+		if res.Right != nil {
+			dumpTreeList(res.Right)
+		}
+	} else {
+		return
 	}
 }
