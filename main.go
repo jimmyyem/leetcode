@@ -122,37 +122,37 @@ func main() {
 	//println(res)
 
 	//226.翻转二叉树
-	list1 := &answers.TreeNode{
-		Val: 4,
-		Left: &answers.TreeNode{
-			Val: 2,
-			Left: &answers.TreeNode{
-				Val:   1,
-				Left:  nil,
-				Right: nil,
-			},
-			Right: &answers.TreeNode{
-				Val:   3,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-		Right: &answers.TreeNode{
-			Val: 7,
-			Left: &answers.TreeNode{
-				Val:   6,
-				Left:  nil,
-				Right: nil,
-			},
-			Right: &answers.TreeNode{
-				Val:   9,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-	}
-	res := answers.InvertTree(list1)
-	dumpTreeList(res)
+	//list1 := &answers.TreeNode{
+	//	Val: 4,
+	//	Left: &answers.TreeNode{
+	//		Val: 2,
+	//		Left: &answers.TreeNode{
+	//			Val:   1,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//		Right: &answers.TreeNode{
+	//			Val:   3,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//	Right: &answers.TreeNode{
+	//		Val: 7,
+	//		Left: &answers.TreeNode{
+	//			Val:   6,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//		Right: &answers.TreeNode{
+	//			Val:   9,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//}
+	//res := answers.InvertTree(list1)
+	//dumpTreeList(res)
 
 	//937. 重新排列日志文件
 	//arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
@@ -314,6 +314,16 @@ func main() {
 	//	println(res.Val)
 	//	res = res.Next
 	//}
+
+	//滑动窗口
+	//arr := []int{1, 2, 3, 4, 5}
+	//res := answers.SlidingWindow(2, arr)
+	//fmt.Printf("%v\n", res)
+
+	//元素存在就移到最前面，不存在则放在前面
+	arr := []string{"1", "2", "3", "4", "5"}
+	res := answers.MoveToFront("7", arr)
+	fmt.Printf("%v\n", res)
 }
 
 func dumpSlice2(slice [][]int) {
