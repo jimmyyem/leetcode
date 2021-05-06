@@ -262,6 +262,52 @@ func main() {
 	//answers.MergeArray(nums1, 3, nums2, 3)
 	//dumpSlice(nums1)
 
+	//144. 二叉树的前序遍历
+	//94. 二叉树的中序遍历
+	//145. 二叉树的后序遍历
+	//root := &answers.TreeNode{
+	//	Val:  1,
+	//	Left: nil,
+	//	Right: &answers.TreeNode{
+	//		Val: 2,
+	//		Left: &answers.TreeNode{
+	//			Val:   3,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//		Right: nil,
+	//	},
+	//}
+	////res := answers.PreorderTraversal(root)
+	////res := answers.InorderTraversal(root)
+	////res := answers.PostorderTraversal(root)
+	//fmt.Printf("%v\n", res)
+
+	root := &answers.TreeNode{
+		Val: 3,
+		Left: &answers.TreeNode{
+			Val:   9,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: &answers.TreeNode{
+			Val: 20,
+			Left: &answers.TreeNode{
+				Val:   15,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &answers.TreeNode{
+				Val:   17,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+	//res := answers.LevelOrder(root)
+	res := answers.LevelOrderBottom(root)
+	fmt.Printf("%v\n", res)
+
 	//151. 翻转字符串里的单词
 	//var s = "  hello world  "
 	//println(answers.ReverseWords(s))
@@ -321,9 +367,9 @@ func main() {
 	//fmt.Printf("%v\n", res)
 
 	//元素存在就移到最前面，不存在则放在前面
-	arr := []string{"1", "2", "3", "4", "5"}
-	res := answers.MoveToFront("7", arr)
-	fmt.Printf("%v\n", res)
+	//arr := []string{"1", "2", "3", "4", "5"}
+	//res := answers.MoveToFront("7", arr)
+	//fmt.Printf("%v\n", res)
 }
 
 func dumpSlice2(slice [][]int) {
