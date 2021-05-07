@@ -1,7 +1,7 @@
 package answers
 
 //https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
-//94. 二叉树的中序遍历
+//94. 二叉树的中序遍历（左节点，当前节点，右节点）
 func InorderTraversal(root *TreeNode) (res []int) {
 	if root == nil {
 		return []int{}

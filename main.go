@@ -284,28 +284,30 @@ func main() {
 	//fmt.Printf("%v\n", res)
 
 	root := &answers.TreeNode{
-		Val: 3,
+		Val: 1,
 		Left: &answers.TreeNode{
-			Val:   9,
-			Left:  nil,
-			Right: nil,
-		},
-		Right: &answers.TreeNode{
-			Val: 20,
-			Left: &answers.TreeNode{
-				Val:   15,
+			Val:  2,
+			Left: nil,
+			Right: &answers.TreeNode{
+				Val:   5,
 				Left:  nil,
 				Right: nil,
 			},
+		},
+		Right: &answers.TreeNode{
+			Val:  3,
+			Left: nil,
 			Right: &answers.TreeNode{
-				Val:   17,
+				Val:   4,
 				Left:  nil,
 				Right: nil,
 			},
 		},
 	}
 	//res := answers.LevelOrder(root)
-	res := answers.LevelOrderBottom(root)
+	//res := answers.LevelOrderBottom(root)
+	//res := answers.ZigzagLevelOrder(root)
+	res := answers.RightSideView(root)
 	fmt.Printf("%v\n", res)
 
 	//151. 翻转字符串里的单词

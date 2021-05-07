@@ -2,14 +2,6 @@ package answers
 
 //https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
 //102. 二叉树的层序遍历
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
 func LevelOrder(root *TreeNode) (res [][]int) {
 	if root == nil {
 		return
@@ -30,21 +22,19 @@ func LevelOrder(root *TreeNode) (res [][]int) {
 					q = append(q, q[i].Left, q[i].Right)
 				}
 			}
-			//本层有内容才放入res
-			if len(tmpSlice) > 0 {
+
+			if len(tmpSlice) > 0 { //本层有内容才放入res
 				res = append(res, tmpSlice)
+			} else { //结束条件，这里如果本层没有节点则说明已经结束
+				break
 			}
 
+			//这里如果有内容，则肯定是newSize>size
 			newSize := len(q)    //新的q长度
 			copy(q[:], q[size:]) //移动q，新追加的内容覆盖以前的内容
 			q = q[:newSize-size] //重新规划q的内容
 		}
 		depth++
-
-		//设置结束条件，到最后一层没有内容
-		if len(q) == 0 {
-			break
-		}
 	}
 	return
 }

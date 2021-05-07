@@ -1,7 +1,7 @@
 package answers
 
 //https://leetcode-cn.com/problems/binary-tree-postorder-traversal/
-//145. 二叉树的后序遍历
+//145. 二叉树的后序遍历（左节点，右节点，当前节点）
 func PostorderTraversal(root *TreeNode) (res []int) {
 	if root == nil {
 		return []int{}
@@ -13,8 +13,8 @@ func PostorderTraversal(root *TreeNode) (res []int) {
 			return
 		}
 
-		postorder(root.Left)          //左节点
-		postorder(root.Right)         //右节点
+		postorder(root.Left)        //左节点
+		postorder(root.Right)       //右节点
 		res = append(res, root.Val) //当前节点
 	}
 

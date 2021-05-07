@@ -1,7 +1,7 @@
 package answers
 
 //https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
-//144. 二叉树的前序遍历
+//144. 二叉树的前序遍历（当前节点，左节点，右节点）
 func PreorderTraversal(root *TreeNode) (res []int) {
 	if root == nil {
 		return []int{}
