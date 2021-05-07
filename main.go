@@ -318,44 +318,45 @@ func main() {
 	//res := answers.AverageOfLevels(root)
 	//fmt.Printf("%v\n", res)
 
-	root := &answers.Node{
-		Val: 1,
-		Left: &answers.Node{
-			Val: 2,
-			Left: &answers.Node{
-				Val:   4,
-				Left:  nil,
-				Right: nil,
-				Next:  nil,
-			},
-			Right: &answers.Node{
-				Val:   5,
-				Left:  nil,
-				Right: nil,
-				Next:  nil,
-			},
-			Next: nil,
-		},
-		Right: &answers.Node{
-			Val: 3,
-			Left: &answers.Node{
-				Val:   6,
-				Left:  nil,
-				Right: nil,
-				Next:  nil,
-			},
-			Right: &answers.Node{
-				Val:   7,
-				Left:  nil,
-				Right: nil,
-				Next:  nil,
-			},
-			Next: nil,
-		},
-		Next: nil,
-	}
-	res := answers.Connect(root)
-	fmt.Printf("%v\n", res)
+	//116. 填充每个节点的下一个右侧节点指针
+	//root := &answers.Node{
+	//	Val: 1,
+	//	Left: &answers.Node{
+	//		Val: 2,
+	//		Left: &answers.Node{
+	//			Val:   4,
+	//			Left:  nil,
+	//			Right: nil,
+	//			Next:  nil,
+	//		},
+	//		Right: &answers.Node{
+	//			Val:   5,
+	//			Left:  nil,
+	//			Right: nil,
+	//			Next:  nil,
+	//		},
+	//		Next: nil,
+	//	},
+	//	Right: &answers.Node{
+	//		Val: 3,
+	//		Left: &answers.Node{
+	//			Val:   6,
+	//			Left:  nil,
+	//			Right: nil,
+	//			Next:  nil,
+	//		},
+	//		Right: &answers.Node{
+	//			Val:   7,
+	//			Left:  nil,
+	//			Right: nil,
+	//			Next:  nil,
+	//		},
+	//		Next: nil,
+	//	},
+	//	Next: nil,
+	//}
+	//res := answers.Connect(root)
+	//fmt.Printf("%v\n", res)
 
 	//151. 翻转字符串里的单词
 	//var s = "  hello world  "
@@ -419,6 +420,30 @@ func main() {
 	//arr := []string{"1", "2", "3", "4", "5"}
 	//res := answers.MoveToFront("7", arr)
 	//fmt.Printf("%v\n", res)
+
+	//剑指 Offer 22. 链表中倒数第k个节点
+	head := &answers.ListNode{
+		Val: 1,
+		Next: &answers.ListNode{
+			Val: 2,
+			Next: &answers.ListNode{
+				Val: 3,
+				Next: &answers.ListNode{
+					Val: 4,
+					Next: &answers.ListNode{
+						Val:  5,
+						Next: &answers.ListNode{
+							Val:  6,
+							Next: nil,
+						},
+					},
+				},
+			},
+		},
+	}
+	//res := answers.GetKthFromEnd(head, 2)
+	res := answers.Middle(head)
+	fmt.Println(res.Val)
 }
 
 func dumpSlice2(slice [][]int) {
