@@ -265,6 +265,8 @@ func main() {
 	//144. 二叉树的前序遍历
 	//94. 二叉树的中序遍历
 	//145. 二叉树的后序遍历
+	//103. 二叉树的锯齿形层序遍历
+	//199. 二叉树的右视图
 	//root := &answers.TreeNode{
 	//	Val:  1,
 	//	Left: nil,
@@ -283,31 +285,76 @@ func main() {
 	////res := answers.PostorderTraversal(root)
 	//fmt.Printf("%v\n", res)
 
-	root := &answers.TreeNode{
-		Val: 1,
-		Left: &answers.TreeNode{
-			Val:  2,
-			Left: nil,
-			Right: &answers.TreeNode{
-				Val:   5,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-		Right: &answers.TreeNode{
-			Val:  3,
-			Left: nil,
-			Right: &answers.TreeNode{
-				Val:   4,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-	}
+	//root := &answers.TreeNode{
+	//	Val: 1,
+	//	Left: &answers.TreeNode{
+	//		Val: 3,
+	//		Left: &answers.TreeNode{
+	//			Val:   5,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//		Right: &answers.TreeNode{
+	//			Val:   3,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//	Right: &answers.TreeNode{
+	//		Val:  2,
+	//		Left: nil,
+	//		Right: &answers.TreeNode{
+	//			Val:   9,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//}
 	//res := answers.LevelOrder(root)
 	//res := answers.LevelOrderBottom(root)
 	//res := answers.ZigzagLevelOrder(root)
-	res := answers.RightSideView(root)
+	//res := answers.RightSideView(root)
+	//res := answers.LargestValues(root)
+	//res := answers.AverageOfLevels(root)
+	//fmt.Printf("%v\n", res)
+
+	root := &answers.Node{
+		Val: 1,
+		Left: &answers.Node{
+			Val: 2,
+			Left: &answers.Node{
+				Val:   4,
+				Left:  nil,
+				Right: nil,
+				Next:  nil,
+			},
+			Right: &answers.Node{
+				Val:   5,
+				Left:  nil,
+				Right: nil,
+				Next:  nil,
+			},
+			Next: nil,
+		},
+		Right: &answers.Node{
+			Val: 3,
+			Left: &answers.Node{
+				Val:   6,
+				Left:  nil,
+				Right: nil,
+				Next:  nil,
+			},
+			Right: &answers.Node{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+				Next:  nil,
+			},
+			Next: nil,
+		},
+		Next: nil,
+	}
+	res := answers.Connect(root)
 	fmt.Printf("%v\n", res)
 
 	//151. 翻转字符串里的单词

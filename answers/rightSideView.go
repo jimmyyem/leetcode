@@ -22,7 +22,6 @@ func RightSideView(root *TreeNode) (res []int) {
 				tmpQ = append(tmpQ, q[i].Right)
 			}
 		}
-		q = nil
 
 		if len(tmpQ) == 0 {
 			break
