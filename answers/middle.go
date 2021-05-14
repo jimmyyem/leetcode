@@ -5,13 +5,13 @@ package answers
 题目描述：链表的中间节点
 给定一个头结点为 head的非空单链表，返回链表的中间结点。
 如果有两个中间结点，则返回第二个中间结点。
- */
-func Middle(head *ListNode) *ListNode {
-	left, right := head, head
-	for right != nil {
-		right = right.Next.Next
-		left = left.Next
-	}
-
-	return left
-}
+*/
+//func middle(head *ListNode) *ListNode {
+//	left, right := head, head
+//	for right != nil && right.Next != nil {
+//		right = right.Next.Next
+//		left = left.Next
+//	}
+//
+//	return left
+//}

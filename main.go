@@ -117,6 +117,15 @@ func main() {
 	//res := answers.ReverseBits(num)
 	//println(res)
 
+	//150. 逆波兰表达式求值
+	//tokens := []string{"4", "13", "5", "/", "+"}
+	//res := answers.EvalRPN(tokens)
+	//fmt.Println(res)
+
+	tokens := []string{"9", "+", "(", "3", "-", "1", ")", "*", "3", "+", "10", "/", "2"}
+	res := answers.Infix2Suffix(tokens)
+	fmt.Printf("%v\n", res)
+
 	//202. 快乐数
 	//res := answers.IsHappy(2)
 	//println(res)
@@ -422,28 +431,55 @@ func main() {
 	//fmt.Printf("%v\n", res)
 
 	//剑指 Offer 22. 链表中倒数第k个节点
-	head := &answers.ListNode{
-		Val: 1,
-		Next: &answers.ListNode{
-			Val: 2,
-			Next: &answers.ListNode{
-				Val: 3,
-				Next: &answers.ListNode{
-					Val: 4,
-					Next: &answers.ListNode{
-						Val:  5,
-						Next: &answers.ListNode{
-							Val:  6,
-							Next: nil,
-						},
-					},
-				},
-			},
-		},
-	}
+	//删除有序列表中重复节点
+	//head := &answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 2,
+	//		Next: &answers.ListNode{
+	//			Val: 3,
+	//			Next: &answers.ListNode{
+	//				Val: 3,
+	//				Next: &answers.ListNode{
+	//					Val: 3,
+	//					Next: &answers.ListNode{
+	//						Val:  4,
+	//						Next: nil,
+	//					},
+	//				},
+	//			},
+	//		},
+	//	},
+	//}
 	//res := answers.GetKthFromEnd(head, 2)
-	res := answers.Middle(head)
-	fmt.Println(res.Val)
+	//res := answers.Middle(head)
+	//res := answers.RemoveDupulicateNode(head)
+
+	//head1 := &answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 2,
+	//		Next: &answers.ListNode{
+	//			Val:  5,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//head2 := &answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 3,
+	//		Next: &answers.ListNode{
+	//			Val:  6,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//res := answers.MergeList(head1, head2)
+	//for res != nil {
+	//	fmt.Println(res.Val)
+	//	res = res.Next
+	//}
 }
 
 func dumpSlice2(slice [][]int) {
