@@ -3,10 +3,17 @@ package main
 import (
 	"fmt"
 	"leetcode/answers"
+	"time"
 )
 
 func main() {
 	//runtime.GOMAXPROCS(8)
+
+	//带cache的斐波那歇数列
+	start := time.Now()
+	fmt.Println(answers.Fabi(30, true))
+	cost := time.Since(start).String()
+	fmt.Println(cost)
 
 	//1. 两数之和
 	//nums := []int{3, 2, 4}
@@ -122,46 +129,40 @@ func main() {
 	//res := answers.EvalRPN(tokens)
 	//fmt.Println(res)
 
-	tokens := []string{"9", "+", "(", "3", "-", "1", ")", "*", "3", "+", "10", "/", "2"}
-	res := answers.Infix2Suffix(tokens)
-	fmt.Printf("%v\n", res)
+	//tokens := []string{"9", "+", "(", "3", "-", "1", ")", "*", "3", "+", "10", "/", "2"}
+	//res := answers.Infix2Suffix(tokens)
+	//fmt.Printf("%v\n", res)
 
 	//202. 快乐数
 	//res := answers.IsHappy(2)
 	//println(res)
 
 	//226.翻转二叉树
-	//list1 := &answers.TreeNode{
-	//	Val: 4,
+	//993. 二叉树的堂兄弟节点
+	//root := &answers.TreeNode{
+	//	Val: 1,
 	//	Left: &answers.TreeNode{
-	//		Val: 2,
-	//		Left: &answers.TreeNode{
-	//			Val:   1,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
+	//		Val:  2,
+	//		Left: nil,
 	//		Right: &answers.TreeNode{
-	//			Val:   3,
+	//			Val:   4,
 	//			Left:  nil,
 	//			Right: nil,
 	//		},
 	//	},
 	//	Right: &answers.TreeNode{
-	//		Val: 7,
-	//		Left: &answers.TreeNode{
-	//			Val:   6,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
+	//		Val:  3,
+	//		Left: nil,
 	//		Right: &answers.TreeNode{
-	//			Val:   9,
+	//			Val:   5,
 	//			Left:  nil,
 	//			Right: nil,
 	//		},
 	//	},
 	//}
-	//res := answers.InvertTree(list1)
-	//dumpTreeList(res)
+	//res := answers.InvertTree(root)
+	//res := answers.IsCousins(root, 4, 5)
+	//fmt.Printf("%v\n", res)
 
 	//937. 重新排列日志文件
 	//arr := []string{"a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"}
