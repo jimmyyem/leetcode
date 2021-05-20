@@ -1,7 +1,5 @@
 package answers
 
-
-
 //https://www.bookstack.cn/read/For-learning-Go-Tutorial/spilt.4.src-chapter16-01.0.md
 //插入排序
 func InsertSort(arr []int) {
@@ -17,8 +15,36 @@ func InsertSort(arr []int) {
 	}
 }
 
-func QuickSort(nums []int) {
-	if len(nums) <= 1 {
-		return
+func QuickSort(sortArray []int, left, right int) {
+	if left < right {
+		midValue := sortArray[(left+right)/2]
+		i := left
+		j := right
+
+		for {
+			for sortArray[i] < midValue {
+				i++
+			}
+			for sortArray[j] > midValue {
+				j--
+			}
+			if i >= j {
+				break
+			}
+			sortArray[i], sortArray[j] = sortArray[j], sortArray[i]
+		}
+		//fmt.Printf("%v, %d\n", sortArray, i)
+		QuickSort(sortArray, left, i-1)
+		QuickSort(sortArray, j+1, right)
 	}
+}
+
+//
+func findIndex(nums []int) int {
+	var idx int
+	if len(nums) > 0 {
+
+	}
+
+	return idx
 }

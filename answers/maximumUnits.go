@@ -5,6 +5,7 @@ import (
 )
 
 //https://leetcode-cn.com/problems/maximum-units-on-a-truck/
+//1710. 卡车上的最大单元数
 func MaximumUnits(boxTypes [][]int, truckSize int) int {
 	var total, multiplier int
 	sort.Slice(boxTypes, func(i, j int) bool {

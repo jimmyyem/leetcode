@@ -3,17 +3,31 @@ package main
 import (
 	"fmt"
 	"leetcode/answers"
-	"time"
 )
 
 func main() {
 	//runtime.GOMAXPROCS(8)
 
-	//带cache的斐波那歇数列
-	start := time.Now()
-	fmt.Println(answers.Fabi(30, true))
-	cost := time.Since(start).String()
-	fmt.Println(cost)
+	//各种斐波那歇数列
+	//start := time.Now()
+	//fmt.Println(answers.Fibo2(30))
+	//cost := time.Since(start).String()
+	//fmt.Println(cost)
+
+	//动态规划，获取最长子序列长度
+	//nums := []int{1, 5, 2, 4, 3}
+	//cnt := answers.GetAllPath(nums)
+	//fmt.Println(cnt)
+
+	//动态规划
+	//nums := []int{1, 2, 5}
+	//res := answers.CoinChange(nums, 11)
+	//fmt.Printf("%v\n", res)
+
+	//快速排序
+	//nums := []int{1, 9, 36, 7, 4, 2, 3, 22, 89, 5}
+	//answers.QuickSort(nums, 0, len(nums)-1)
+	//fmt.Printf("%v\n", nums)
 
 	//1. 两数之和
 	//nums := []int{3, 2, 4}
@@ -98,6 +112,21 @@ func main() {
 	//res := answers.Permute(nums)
 	//dumpSlice2(res)
 
+	//动态规划
+	//62. 不同路径
+	//res := answers.UniquePaths(7, 3)
+
+	//64. 最小路径和
+	//grid := make([][]int, 3)
+	//for i := 0; i < 3; i++ {
+	//	grid[i] = make([]int, 3)
+	//}
+	//grid[0] = []int{1, 3, 1}
+	//grid[1] = []int{1, 5, 1}
+	//grid[2] = []int{4, 2, 1}
+	//res := answers.MinPathSum(grid)
+	//fmt.Println(res)
+
 	//println("5张扑克牌是否连续")
 	//nums := []int{0, 0, 0, 19, 5}
 	//flags := answers.IsStraight(nums)
@@ -123,6 +152,12 @@ func main() {
 	//var num uint32 = 4294967293
 	//res := answers.ReverseBits(num)
 	//println(res)
+
+	//121. 买卖股票的最佳时机
+	nums := []int{1, 2, 3, 4, 5}
+	res := answers.MaxProfit121(nums)
+	//res := answers.MaxProfit122(nums)
+	fmt.Printf("%v\n", res)
 
 	//150. 逆波兰表达式求值
 	//tokens := []string{"4", "13", "5", "/", "+"}
@@ -389,6 +424,11 @@ func main() {
 	//var nums = []int{0, 1, 0, 3, 12}
 	//answers.MoveZeroes(nums)
 
+	//692. 前K个高频单词
+	//str := []string{"i", "love", "leetcode", "i", "love", "coding"}
+	//res := answers.TopKFrequent(str, 2)
+	//fmt.Printf("%v\n", res)
+
 	//1758. 生成交替二进制字符串的最少操作数
 	//var s = "10010100"
 	//println(answers.MinOperations(s))
@@ -520,4 +560,18 @@ func dumpTreeList(res *answers.TreeNode) {
 	} else {
 		return
 	}
+}
+
+func max(x, y int) int {
+	if x >= y {
+		return x
+	}
+	return y
+}
+
+func min(x, y int) int {
+	if x >= y {
+		return y
+	}
+	return x
 }

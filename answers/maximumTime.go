@@ -1,6 +1,7 @@
 package answers
 
 //https://leetcode-cn.com/problems/latest-time-by-replacing-hidden-digits/
+//1736. 替换隐藏数字得到的最晚时间
 func MaximumTime(time string) string {
 	var res [5]byte
 
