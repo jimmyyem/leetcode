@@ -17,7 +17,6 @@ func TopKFrequent(words []string, k int) []string {
 	}
 	sort.Slice(uniqueWords, func(i, j int) bool {
 		s, t := uniqueWords[i], uniqueWords[j]
-		//fmt.Println(s, t)
 		return cnt[s] > cnt[t] || cnt[s] == cnt[t] && s < t
 	})
 	return uniqueWords[:k]
