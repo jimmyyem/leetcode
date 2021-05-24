@@ -22,7 +22,7 @@ func LongestPalindrome(s string) string {
 
 //根据给定位置开始从中心向左右两侧扩展，搜索回文内容索引位置
 func expandAroundCenter(s string, left, right int) (int, int) {
-	for ; left >= 0 && right <= len(s)-1 && s[left] == s[right]; left, right = left-1, right+1 {
+	for ; left >= 0 && right < len(s) && s[left] == s[right]; left, right = left-1, right+1 {
 	}
 	return left + 1, right - 1
 }

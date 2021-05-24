@@ -69,6 +69,10 @@ func main() {
 	//5.最长回文子串
 	//println(answers.LongestPalindrome("babad"))
 
+	//6. Z 字形变换
+	sub := answers.Convert("PAYPALISHIRING", 4)
+	fmt.Println(sub)
+
 	//7. 整数反转
 	//res := answers.Reverse(-123)
 	//println(res)
@@ -153,11 +157,11 @@ func main() {
 	//res := answers.ReverseBits(num)
 	//println(res)
 
-	//121. 买卖股票的最佳时机
-	nums := []int{1, 2, 3, 4, 5}
-	res := answers.MaxProfit121(nums)
-	//res := answers.MaxProfit122(nums)
-	fmt.Printf("%v\n", res)
+	//??121. 买卖股票的最佳时机
+	//nums := []int{1, 2, 3, 4, 5}
+	//res := answers.MaxProfit121(nums)
+	////res := answers.MaxProfit122(nums)
+	//fmt.Printf("%v\n", res)
 
 	//150. 逆波兰表达式求值
 	//tokens := []string{"4", "13", "5", "/", "+"}
@@ -171,6 +175,10 @@ func main() {
 	//202. 快乐数
 	//res := answers.IsHappy(2)
 	//println(res)
+
+	//664. 奇怪的打印机
+	//res := answers.StrangePrinter("ababab")
+	//fmt.Println(res)
 
 	//226.翻转二叉树
 	//993. 二叉树的堂兄弟节点
