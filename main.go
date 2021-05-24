@@ -70,8 +70,8 @@ func main() {
 	//println(answers.LongestPalindrome("babad"))
 
 	//6. Z 字形变换
-	sub := answers.Convert("PAYPALISHIRING", 4)
-	fmt.Println(sub)
+	//sub := answers.Convert("PAYPALISHIRING", 4)
+	//fmt.Println(sub)
 
 	//7. 整数反转
 	//res := answers.Reverse(-123)
@@ -87,6 +87,10 @@ func main() {
 	//var points = []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
 	//res := answers.MaxArea(points)
 	//println(res)
+
+	//12. 整数转罗马数字
+	//res := answers.IntToRoman(3588)
+	//fmt.Println(res)
 
 	//13.罗马数字转整数
 	//res := answers.RomanToInt("IIV")
