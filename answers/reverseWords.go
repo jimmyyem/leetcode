@@ -47,9 +47,9 @@ func ReverseWords(s string) string {
 			word = append(word, s[idx])
 		} else { //空格，把存起来的单词反转并存入res
 			reverseWord(word) //把单词逆序
-			res = append(res, word...)
 			//必须有内容才增加空格，应对处理多个连续空格的情况
 			if len(word) > 0 {
+				res = append(res, word...)
 				res = append(res, ' ')
 			}
 			word = word[0:0] //word字节序列重置

@@ -60,6 +60,8 @@ func main() {
 	//dumpList(res)
 
 	//3. 无重复字符的最长子串
+	//size := answers.LengthOfLongestSubstring("abcabcbb")
+	//fmt.Println(size)
 
 	//???4. 寻找两个正序数组的中位数
 	//nums1 := []int{1, 2, 3, 4, 5}
@@ -120,6 +122,11 @@ func main() {
 	//res := answers.Permute(nums)
 	//dumpSlice2(res)
 
+	//??49. 字母异位词分组
+	//strs := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
+	//res := answers.GroupAnagrams(strs)
+	//fmt.Printf("%v\n", res)
+
 	//动态规划
 	//62. 不同路径
 	//res := answers.UniquePaths(7, 3)
@@ -179,6 +186,10 @@ func main() {
 	//202. 快乐数
 	//res := answers.IsHappy(2)
 	//println(res)
+
+	//461. 汉明距离
+	//res := answers.HammingDistance(1, 4)
+	//fmt.Println("distance is ", res)
 
 	//664. 奇怪的打印机
 	//res := answers.StrangePrinter("ababab")
@@ -435,6 +446,10 @@ func main() {
 	//283.移动零
 	//var nums = []int{0, 1, 0, 3, 12}
 	//answers.MoveZeroes(nums)
+
+	//316. 去除重复字母
+	//res := answers.RemoveDuplicateLetters("")
+	//fmt.Println(res)
 
 	//692. 前K个高频单词
 	//str := []string{"i", "love", "leetcode", "i", "love", "coding"}
