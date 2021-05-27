@@ -142,31 +142,22 @@ func main() {
 	//res := answers.MinPathSum(grid)
 	//fmt.Println(res)
 
-	//println("5张扑克牌是否连续")
+	//剑指 Offer 61. 扑克牌中的顺子
 	//nums := []int{0, 0, 0, 19, 5}
 	//flags := answers.IsStraight(nums)
 	//println(flags)
 
-	//println("验证IP是否合法")
-	//flags := answers.ValidIPAddress("192.0.0.1")
-	//println(flags)
-
-	//println("最长共有前缀")
-	//var strs []string
-	//strs = append(strs, "hahlo")
-	//strs = append(strs, "haha")
-	//strs = append(strs, "haho")
+	//14.最长共有前缀
+	//var strs = []string{}
+	//strs = append(strs, "c")
+	//strs = append(strs, "acc")
+	//strs = append(strs, "ccc")
 	//prefix := answers.LongestCommonPrefix(strs)
 	//println(prefix)
 
 	//println("计算无符号二进制数里1的个数")
 	//var num uint32 = 000000000100
 	//println(answers.HammingWeight(num))
-
-	//println("颠倒二进制数")
-	//var num uint32 = 4294967293
-	//res := answers.ReverseBits(num)
-	//println(res)
 
 	//??121. 买卖股票的最佳时机
 	//nums := []int{1, 2, 3, 4, 5}
@@ -183,6 +174,11 @@ func main() {
 	//res := answers.Infix2Suffix(tokens)
 	//fmt.Printf("%v\n", res)
 
+	//190.颠倒二进制数
+	//var num uint32 = 4294967293
+	//res := answers.ReverseBits(num)
+	//println(res)
+
 	//202. 快乐数
 	//res := answers.IsHappy(2)
 	//println(res)
@@ -190,6 +186,10 @@ func main() {
 	//461. 汉明距离
 	//res := answers.HammingDistance(1, 4)
 	//fmt.Println("distance is ", res)
+
+	//468. 验证IP地址.验证IP是否合法
+	//flags := answers.ValidIPAddress("192.0.0.1")
+	//println(flags)
 
 	//664. 奇怪的打印机
 	//res := answers.StrangePrinter("ababab")
@@ -262,27 +262,9 @@ func main() {
 	//res := answers.MinArray(nums)
 	//println(res)
 
-	//println("旋转数组的最小数字")
+	//剑指 Offer 11. 旋转数组的最小数字
 	//var s string = "textbook"
 	//res := answers.HalvesAreAlike(s)
-	//println(res)
-
-	//println("计算力扣银行的钱")
-	//res := answers.TotalMoney(10)
-	//println(res)
-
-	//println("计算力扣银行的钱")
-	//res := answers.MaximumTime("??:3?")
-	//println(res)
-
-	//println("卡车上的最大单元数")
-	//var boxTypes = [][]int{{5, 10}, {2, 5}, {4, 7}, {3, 9}}
-	//res := answers.MaximumUnits(boxTypes, 10)
-	//println(res)
-
-	//println("找到最高海拔")
-	//var height = []int{-4,-3,-2,-1,4,3,2}
-	//res := answers.LargestAltitude(height)
 	//println(res)
 
 	//26. 删除有序数组中的重复项
@@ -455,6 +437,24 @@ func main() {
 	//str := []string{"i", "love", "leetcode", "i", "love", "coding"}
 	//res := answers.TopKFrequent(str, 2)
 	//fmt.Printf("%v\n", res)
+
+	//1716.计算力扣银行的钱
+	//res := answers.TotalMoney(10)
+	//println(res)
+
+	//1736. 替换隐藏数字得到的最晚时间
+	//res := answers.MaximumTime("??:3?")
+	//println(res)
+
+	//1710. 卡车上的最大单元数
+	//var boxTypes = [][]int{{5, 10}, {2, 5}, {4, 7}, {3, 9}}
+	//res := answers.MaximumUnits(boxTypes, 10)
+	//println(res)
+
+	//1732. 找到最高海拔
+	//var height = []int{-4,-3,-2,-1,4,3,2}
+	//res := answers.LargestAltitude(height)
+	//println(res)
 
 	//1758. 生成交替二进制字符串的最少操作数
 	//var s = "10010100"

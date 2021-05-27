@@ -1,5 +1,7 @@
 package answers
 
+//https://leetcode-cn.com/problems/reverse-bits/
+//190. 颠倒二进制位
 func ReverseBits(num uint32) uint32 {
 	var res uint32
 	pointer := 31

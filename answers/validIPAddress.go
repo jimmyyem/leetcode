@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+//https://leetcode-cn.com/problems/validate-ip-address/
+//468. 验证IP地址
 func ValidIPAddress(IP string) string {
 	var res string
 
