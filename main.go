@@ -111,6 +111,34 @@ func main() {
 	//res := answers.LetterCombinations(digits)
 	//dumpSliceString(res)
 
+	//21. 合并两个有序链表
+	//list1 := answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 2,
+	//		Next: &answers.ListNode{
+	//			Val:  3,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//list2 := answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 3,
+	//		Next: &answers.ListNode{
+	//			Val:  4,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//res := answers.MergeTwoLists(&list1, &list2)
+	//
+	//for res != nil {
+	//	println(res.Val)
+	//	res = res.Next
+	//}
+
 	//42.接雨水
 	//nums := []int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}
 	//println(answers.Trap(nums))
@@ -459,34 +487,6 @@ func main() {
 	//1758. 生成交替二进制字符串的最少操作数
 	//var s = "10010100"
 	//println(answers.MinOperations(s))
-
-	//println("合并两个有序链表")
-	//list1 := answers.ListNode{
-	//	Val: 1,
-	//	Next: &answers.ListNode{
-	//		Val: 2,
-	//		Next: &answers.ListNode{
-	//			Val:  3,
-	//			Next: nil,
-	//		},
-	//	},
-	//}
-	//list2 := answers.ListNode{
-	//	Val: 1,
-	//	Next: &answers.ListNode{
-	//		Val: 3,
-	//		Next: &answers.ListNode{
-	//			Val:  4,
-	//			Next: nil,
-	//		},
-	//	},
-	//}
-	//res := answers.MergeTwoLists(&list1, &list2)
-	//
-	//for res != nil {
-	//	println(res.Val)
-	//	res = res.Next
-	//}
 
 	//滑动窗口
 	//arr := []int{1, 2, 3, 4, 5}

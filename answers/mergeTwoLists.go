@@ -6,6 +6,7 @@ type ListNode struct {
 }
 
 //https://leetcode-cn.com/problems/merge-two-sorted-lists/
+//21. 合并两个有序链表
 func MergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	// 如果有一条为nil， 直接返回另一条
 	if l1 == nil {

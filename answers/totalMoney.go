@@ -1,5 +1,7 @@
 package answers
 
+//https://leetcode-cn.com/problems/calculate-money-in-leetcode-bank/
+//1716. 计算力扣银行的钱
 func TotalMoney(n int) int {
 	total := 0
 	weeks := int(n / 7)
