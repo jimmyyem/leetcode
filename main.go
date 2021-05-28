@@ -212,12 +212,16 @@ func main() {
 	//println(res)
 
 	//461. 汉明距离
-	//res := answers.HammingDistance(1, 4)
+	//res := answers.HammingDistance2(1, 4)
 	//fmt.Println("distance is ", res)
 
 	//468. 验证IP地址.验证IP是否合法
 	//flags := answers.ValidIPAddress("192.0.0.1")
 	//println(flags)
+
+	//477. 汉明距离总和
+	//res := answers.TotalHammingDistance([]int{4, 14, 2})
+	//fmt.Println(res)
 
 	//664. 奇怪的打印机
 	//res := answers.StrangePrinter("ababab")
