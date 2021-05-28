@@ -266,11 +266,11 @@ func main() {
 	//res := answers.ReverseLeftWords("abcdefg", 2)
 	//println(res)
 
-	//println("第一个只出现一次的字符")
+	//387. 字符串中的第一个唯一字符
 	//res := answers.FirstUniqChar("sasbadxf")
 	//println(res)
 
-	//println("0～n-1中缺失的数字")
+	//剑指 Offer 53 - II. 0～n-1中缺失的数字
 	//nums := []int{0, 1, 2, 3, 4, 5, 6, 7, 9}
 	//res := answers.MissingNumber(nums)
 	//println(res)

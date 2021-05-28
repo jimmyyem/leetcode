@@ -3,7 +3,7 @@ package answers
 import "sort"
 
 //https://leetcode-cn.com/problems/merge-intervals/
-//88.合并区间
+//56.合并区间
 func MergeSection(intervals [][]int) [][]int {
 	max := func(x, y int) int {
 		if x > y {

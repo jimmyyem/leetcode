@@ -1,6 +1,7 @@
 package answers
 
 //https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/
+//剑指 Offer 03. 数组中重复的数字
 func FindRepeatNumber(nums []int) int {
 	//var list = make([]int, len(nums))
 	//
