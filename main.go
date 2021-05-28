@@ -212,8 +212,8 @@ func main() {
 	//println(res)
 
 	//461. 汉明距离
-	//res := answers.HammingDistance2(1, 4)
-	//fmt.Println("distance is ", res)
+	res := answers.HammingDistance2(1, 4)
+	fmt.Println("distance is ", res)
 
 	//468. 验证IP地址.验证IP是否合法
 	//flags := answers.ValidIPAddress("192.0.0.1")

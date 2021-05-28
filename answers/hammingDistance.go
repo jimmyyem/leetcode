@@ -62,7 +62,8 @@ func HammingDistance2(x int, y int) int {
 	res := 0
 	z := x ^ y //2个数字异或，相同结果是0，不同结果是1
 	for z > 0 {
-		res += z % 2
+		//res += z % 2	//利用余数判断
+		res += z & 1 //利用&运算
 		z /= 2
 	}
 	return res
