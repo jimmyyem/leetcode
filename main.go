@@ -139,6 +139,10 @@ func main() {
 	//	res = res.Next
 	//}
 
+	//28. 实现 strStr()
+	idx := answers.StrStr("abc", "c")
+	fmt.Println("res is ", idx)
+
 	//42.接雨水
 	//nums := []int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}
 	//println(answers.Trap(nums))
@@ -212,8 +216,8 @@ func main() {
 	//println(res)
 
 	//461. 汉明距离
-	res := answers.HammingDistance2(1, 4)
-	fmt.Println("distance is ", res)
+	//res := answers.HammingDistance2(1, 4)
+	//fmt.Println("distance is ", res)
 
 	//468. 验证IP地址.验证IP是否合法
 	//flags := answers.ValidIPAddress("192.0.0.1")
