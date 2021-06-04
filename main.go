@@ -98,6 +98,14 @@ func main() {
 	//res := answers.RomanToInt("IIV")
 	//println(res)
 
+	//14.最长共有前缀
+	//var strs = []string{}
+	//strs = append(strs, "c")
+	//strs = append(strs, "acc")
+	//strs = append(strs, "ccc")
+	//prefix := answers.LongestCommonPrefix(strs)
+	//println(prefix)
+
 	//15. 三数之和
 	//var nums = []int{-2, 0, 3, -1, 4, 0, 3, 4, 1, 1, 1, -3, -5, 4, 0}
 	//answers.ThreeSum(nums)
@@ -139,9 +147,14 @@ func main() {
 	//	res = res.Next
 	//}
 
-	//28. 实现 strStr()
-	idx := answers.StrStr("abc", "c")
-	fmt.Println("res is ", idx)
+	//??28. 实现 strStr()
+	//idx := answers.KMP("ABCDABD&ABCDABD&", "ABCDABD&")
+	//idx := answers.QuerySameFix("ABCDAB")
+	//fmt.Println("ABCDAB common fix length is ", idx)
+
+	//34. 在排序数组中查找元素的第一个和最后一个位置
+	//srange := answers.SearchRange([]int{5, 7, 7, 8, 8, 10}, 8)
+	//fmt.Printf("%v", srange)
 
 	//42.接雨水
 	//nums := []int{0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1}
@@ -178,14 +191,6 @@ func main() {
 	//nums := []int{0, 0, 0, 19, 5}
 	//flags := answers.IsStraight(nums)
 	//println(flags)
-
-	//14.最长共有前缀
-	//var strs = []string{}
-	//strs = append(strs, "c")
-	//strs = append(strs, "acc")
-	//strs = append(strs, "ccc")
-	//prefix := answers.LongestCommonPrefix(strs)
-	//println(prefix)
 
 	//println("计算无符号二进制数里1的个数")
 	//var num uint32 = 000000000100
@@ -226,6 +231,14 @@ func main() {
 	//477. 汉明距离总和
 	//res := answers.TotalHammingDistance([]int{4, 14, 2})
 	//fmt.Println(res)
+
+	//???523. 连续的子数组和
+	//sum := answers.CheckSubarraySum([]int{23, 2, 4, 6, 7}, 6)
+	//fmt.Println(sum)
+
+	//525. 连续数组
+	subarray := answers.FindMaxLength([]int{0, 1})
+	fmt.Printf("%v\n", subarray)
 
 	//664. 奇怪的打印机
 	//res := answers.StrangePrinter("ababab")
