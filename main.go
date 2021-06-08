@@ -237,7 +237,7 @@ func main() {
 	//fmt.Println(sum)
 
 	//525. 连续数组
-	subarray := answers.FindMaxLength([]int{0, 1})
+	subarray := answers.FindMaxLength([]int{0, 1, 0})
 	fmt.Printf("%v\n", subarray)
 
 	//664. 奇怪的打印机

@@ -3,14 +3,20 @@ package answers
 //https://leetcode-cn.com/problems/contiguous-array/
 //525. 连续数组
 func FindMaxLength(nums []int) int {
-	maxLength := 0
-	for i := 1; i < len(nums); {
-		if nums[i] != nums[i-1] {
-			maxLength += 2
-			i += 2
-			continue
+	ans := 0
+	m := map[int]int{0: -1} // 数组的前缀，下标置为-1
+	cnt := 0
+	for i, v := range nums {
+		if v == 1 {
+			cnt++
+		} else {
+			cnt--
 		}
-		i++
+		if p, ok := m[cnt]; ok {
+			ans = max(ans, i-p)
+		} else {
+			m[cnt] = i //不存在时才设置，保证m[cnt]对应的下标最小，从而保证结果是最长的子数组
+		}
 	}
-	return maxLength
+	return ans
 }

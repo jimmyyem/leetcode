@@ -17,7 +17,7 @@ func main() {
 	//nums = bubbleSort(nums)
 	//nums = selectSort(nums)
 	//quickSort(nums, 0, len(nums)-1)
-	HeapSort(nums)
+	heapSort(nums)
 	fmt.Printf("%v\n", nums)
 
 	//sort.Slice(nums, func(i, j int) bool {
@@ -139,53 +139,53 @@ func merge(l []int, r []int) []int {
 }
 
 //堆排序
-//s[0]不用，实际元素从角标1开始
-//父节点元素大于子节点元素
-//左子节点角标为2*k
-//右子节点角标为2*k+1
-//父节点角标为k/2
-func HeapSort(s []int) {
-	N := len(s) - 1 //s[0]不用，实际元素数量和最后一个元素的角标都为N
-	//构造堆
-	//如果给两个已构造好的堆添加一个共同父节点，
-	//将新添加的节点作一次下沉将构造一个新堆，
-	//由于叶子节点都可看作一个构造好的堆，所以
-	//可以从最后一个非叶子节点开始下沉，直至
-	//根节点，最后一个非叶子节点是最后一个叶子
-	//节点的父节点，角标为N/2
-	//fmt.Printf("%v\n", s)
-	for k := N / 2; k >= 1; k-- {
-		Sink(s, k, N)
+//升序
+func heapSort(nums []int) {
+	fmt.Printf("初始状态 %v\n", nums)
+	n := len(nums) - 1
+
+	//从底层向上层构建，n/2是第一个非叶子，叶子节点不需要动，这样就减少了将近一半节点的比较和移动
+	//这时候堆顶已经是最大/小的了
+	for k := n / 2; k >= 1; k-- {
+		sink(nums, k, n)
 	}
-	//fmt.Printf("%v\n", s)
-	//下沉排序
-	for N > 1 {
-		Swap(s, 1, N) //将大的放在数组后面，升序排序
-		N--
-		Sink(s, 1, N)
+	fmt.Printf("建堆后 %v\n", nums)
+
+	//首尾交换，重新构建小顶堆
+	for n > 1 {
+		//将最大/小的数值调整到堆的末尾
+		swap(nums, 1, n)
+		//减少堆的长度
+		n--
+		//由于堆顶元素改变了，而且堆的大小改变了，需要重新调整堆，维持堆的性质
+		sink(nums, 1, n)
 	}
+	fmt.Printf("排序后 %v", nums)
 }
 
-//下沉（由上至下的堆有序化）
-func Sink(s []int, k, N int) {
+//下沉操作
+func sink(nums []int, k, n int) {
 	for {
-		i := 2 * k //左子节点
-		if i > N { //保证该节点是非叶子节点
+		i := k * 2	//找到左子节点
+		if i > n {
 			break
 		}
-		if i < N && s[i+1] > s[i] { //选择较大的子节点
+		//如果右节点比左节点大，则使用右节点
+		if i < n && nums[i+1] > nums[i] {
 			i++
 		}
-		if s[k] >= s[i] { //没下沉到底就构造好堆了
+		//如果子节点比父节点小，这交换；否则就停止下沉
+		if nums[k] >= nums[i] {
 			break
 		} else {
-			Swap(s, k, i)
+			swap(nums, k, i)
 		}
 
 		k = i
 	}
 }
 
-func Swap(s []int, i int, j int) {
-	s[i], s[j] = s[j], s[i]
+//交换slice的2个元素的值
+func swap(nums []int, i, j int) {
+	nums[i], nums[j] = nums[j], nums[i]
 }
