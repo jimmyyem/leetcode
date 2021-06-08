@@ -139,7 +139,6 @@ func merge(l []int, r []int) []int {
 }
 
 //堆排序
-//堆排序
 //s[0]不用，实际元素从角标1开始
 //父节点元素大于子节点元素
 //左子节点角标为2*k
@@ -154,21 +153,23 @@ func HeapSort(s []int) {
 	//可以从最后一个非叶子节点开始下沉，直至
 	//根节点，最后一个非叶子节点是最后一个叶子
 	//节点的父节点，角标为N/2
+	//fmt.Printf("%v\n", s)
 	for k := N / 2; k >= 1; k-- {
-		sink(s, k, N)
+		Sink(s, k, N)
 	}
+	//fmt.Printf("%v\n", s)
 	//下沉排序
 	for N > 1 {
-		swap(s, 1, N) //将大的放在数组后面，升序排序
+		Swap(s, 1, N) //将大的放在数组后面，升序排序
 		N--
-		sink(s, 1, N)
+		Sink(s, 1, N)
 	}
 }
 
 //下沉（由上至下的堆有序化）
-func sink(s []int, k, N int) {
+func Sink(s []int, k, N int) {
 	for {
-		i := 2 * k
+		i := 2 * k //左子节点
 		if i > N { //保证该节点是非叶子节点
 			break
 		}
@@ -177,12 +178,14 @@ func sink(s []int, k, N int) {
 		}
 		if s[k] >= s[i] { //没下沉到底就构造好堆了
 			break
+		} else {
+			Swap(s, k, i)
 		}
-		swap(s, k, i)
+
 		k = i
 	}
 }
 
-func swap(s []int, i int, j int) {
+func Swap(s []int, i int, j int) {
 	s[i], s[j] = s[j], s[i]
 }
