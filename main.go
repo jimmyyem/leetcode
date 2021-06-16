@@ -3,9 +3,12 @@ package main
 import (
 	"fmt"
 	"leetcode/answers"
+	"strconv"
+	"strings"
 )
 
 func main() {
+	fmt.Println(countAndSay(5))
 	//runtime.GOMAXPROCS(8)
 
 	//各种斐波那歇数列
@@ -118,6 +121,10 @@ func main() {
 	//digits := "23"
 	//res := answers.LetterCombinations(digits)
 	//dumpSliceString(res)
+
+	//20. 有效的括号
+	//isValid := answers.IsValid("()[]{}")
+	//fmt.Println(isValid)
 
 	//21. 合并两个有序链表
 	//list1 := answers.ListNode{
@@ -236,9 +243,13 @@ func main() {
 	//sum := answers.CheckSubarraySum([]int{23, 2, 4, 6, 7}, 6)
 	//fmt.Println(sum)
 
-	//525. 连续数组
-	subarray := answers.FindMaxLength([]int{0, 1, 0})
-	fmt.Printf("%v\n", subarray)
+	//???525. 连续数组
+	//subarray := answers.FindMaxLength([]int{0, 1, 0})
+	//fmt.Printf("%v\n", subarray)
+
+	//???560. 和为K的子数组
+	//count := answers.SubarraySum([]int{1, 1, 1}, 2)
+	//fmt.Println(count)
 
 	//664. 奇怪的打印机
 	//res := answers.StrangePrinter("ababab")
@@ -315,6 +326,10 @@ func main() {
 	//var s string = "textbook"
 	//res := answers.HalvesAreAlike(s)
 	//println(res)
+
+	//剑指 Offer 67. 把字符串转换成整数
+	//intnum := answers.StrToInt("   -42")
+	//fmt.Println(intnum)
 
 	//26. 删除有序数组中的重复项
 	//var elements = []int{0,0,1,1,1,2,2,3,3,4}
@@ -622,4 +637,130 @@ func min(x, y int) int {
 		return y
 	}
 	return x
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xn96us/
+func isAnagram(s string, t string) bool {
+	len1 := len(s)
+	len2 := len(t)
+	if len1 != len2 {
+		return false
+	}
+	map1, map2 := make(map[byte]int), make(map[byte]int)
+	for i := 0; i < len1; i++ {
+		map1[s[i]]++
+	}
+	for i := 0; i < len1; i++ {
+		map2[t[i]]++
+	}
+
+	for k1, v1 := range map1 {
+		v2, ok := map2[k1]
+		if !ok || v2 != v1 {
+			return false
+		}
+	}
+
+	return true
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xne8id/
+func isPalindrome(s string) bool {
+	var newStr = make([]byte, 0, len(s))
+
+	for i := 0; i < len(s); i++ {
+		if isLower(s[i]) {
+			newStr = append(newStr, s[i])
+		} else if isUpper(s[i]) {
+			newStr = append(newStr, s[i]+32)
+		} else if isNumber(s[i]) {
+			newStr = append(newStr, s[i])
+		}
+	}
+	//fmt.Printf("%s\n", newStr)
+
+	size := len(newStr)
+	start, end := 0, size-1
+	for start < end {
+		if newStr[start] != newStr[end] {
+			return false
+		}
+		start++
+		end--
+	}
+
+	return true
+}
+
+func isUpper(a byte) bool {
+	return a >= 'A' && a <= 'Z'
+}
+func isLower(a byte) bool {
+	return a >= 'a' && a <= 'z'
+}
+func isNumber(a byte) bool {
+	return a >= '0' && a <= '9'
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnoilh/
+func myAtoi(s string) int {
+	res, flag := 0, 1
+	start, end := false, false
+	for i := 0; i < len(s); i++ {
+		switch s[i] {
+		case '+':
+			if start {
+				end = true
+			}
+			start = true
+		case '-':
+			if start {
+				end = true
+			}
+			start = true
+		case ' ':
+			if start {
+				end = true
+			}
+			start = true
+		case '1', '2', '3', '4', '5', '6', '7', '8', '9', '0':
+			res += res*10 + int(s[i]-'0')
+			start = true
+		default:
+			end = true
+		}
+		if end {
+			break
+		}
+	}
+
+	return res * flag
+}
+
+//题目 https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnpvdm/
+//解题 https://leetcode-cn.com/problems/count-and-say/solution/go-die-dai-by-ba-xiang/
+func countAndSay(n int) string {
+	str := "1"
+	for i := 2; i <= n; i++ {
+		temp := strings.Builder{}
+		preByte := str[0]
+		count := 1
+		for j := 1; j < len(str); j++ {
+			if preByte == str[j] {
+				count++
+			} else {
+				temp.WriteString(strconv.Itoa(count))
+				temp.WriteByte(preByte)
+				count = 1
+				preByte = str[j]
+			}
+		}
+		//把最后的补上
+		temp.WriteString(strconv.Itoa(count))
+		temp.WriteByte(preByte)
+
+		str = temp.String()
+	}
+
+	return str
 }
