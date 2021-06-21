@@ -3,12 +3,16 @@ package main
 import (
 	"fmt"
 	"leetcode/answers"
+	"sort"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	fmt.Println(countAndSay(5))
+	//fmt.Println(countAndSay(5))
+
+	nums := []int{1, 2, 1, 2, 4, 7, 7}
+	fmt.Println(singleNumber(nums))
 	//runtime.GOMAXPROCS(8)
 
 	//各种斐波那歇数列
@@ -226,6 +230,10 @@ func main() {
 	//202. 快乐数
 	//res := answers.IsHappy(2)
 	//println(res)
+
+	//350. 两个数组的交集 II
+	//res := answers.Intersect([]int{1, 2, 3}, []int{3, 4, 5})
+	//fmt.Printf("%v\n", res)
 
 	//461. 汉明距离
 	//res := answers.HammingDistance2(1, 4)
@@ -763,4 +771,147 @@ func countAndSay(n int) string {
 	}
 
 	return str
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2gy9m/
+func removeDuplicateNodes(nums []int) int {
+	size := len(nums)
+	slow := 0
+	for fast := 1; fast < size; fast++ {
+		if nums[slow] != nums[fast] {
+			slow++
+			nums[slow] = nums[fast]
+		}
+	}
+
+	if slow < size {
+		return slow + 1
+	}
+	return size
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2zsx1/
+func maxProfit(prices []int) int {
+	min_price := -1 << 31
+	max_profit := 0
+	for _, price := range prices {
+		if price < min_price {
+			min_price = price
+		}
+		if price-min_price > max_profit {
+			max_profit = price - min_price
+		}
+	}
+	return max_profit
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2skh7/
+//借助临时变量
+func rotate(nums []int, k int) {
+	size := len(nums)
+
+	for k > size {
+		k -= size
+	}
+
+	temp := make([]int, 0, size)
+	start := size - k
+	for i := start; i < size; i++ {
+		temp = append(temp, nums[i])
+	}
+	for i := 0; i < start; i++ {
+		temp = append(temp, nums[i])
+	}
+
+	copy(nums, temp)
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2skh7/
+//分三步 1.全部反转 2.反转前面部分 3.反转后面部分
+func rotate2(nums []int, k int) {
+	size := len(nums)
+
+	for k > size {
+		k %= size
+	}
+
+	//全部反转
+	reverse(nums, 0, size-1)
+	fmt.Printf("%v 11\n", nums)
+	//反转前面部分
+	reverse(nums, 0, k-1)
+	fmt.Printf("%v 22\n", nums)
+	//反转后面部分
+	reverse(nums, k, size-1)
+	fmt.Printf("%v 33\n", nums)
+}
+func reverse(nums []int, start, end int) {
+	for start < end {
+		nums[start], nums[end] = nums[end], nums[start]
+		start++
+		end--
+	}
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x248f5/
+func containsDuplicate(nums []int) bool {
+	//先排序
+	sort.Ints(nums)
+
+	//在判断
+	for i := 1; i < len(nums); i++ {
+		if nums[i] == nums[i-1] {
+			return true
+		}
+	}
+
+	return false
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x21ib6/
+func singleNumber(nums []int) int {
+	reduce := 0
+	for i := 0; i < len(nums); i++ {
+		reduce ^= nums[i]
+	}
+
+	return reduce
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2y0c2/
+func intersect(nums1 []int, nums2 []int) []int {
+	sort.Ints(nums1)
+	sort.Ints(nums2)
+
+	size1 := len(nums1)
+	size2 := len(nums2)
+	var minVal int
+
+	minVal = size1
+	if size1 > size2 {
+		minVal = size2
+	}
+
+	middle := make([]int, 0, minVal)
+
+	for _, val := range nums1 {
+		if in_array(val, nums2) {
+			middle = append(middle, val)
+		}
+	}
+}
+func in_array(val int, nums []int) bool {
+	found := -1
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == val {
+			found = i
+			break
+		}
+	}
+
+	if found == -1 {
+		return false
+	}
+
+	return true
 }
