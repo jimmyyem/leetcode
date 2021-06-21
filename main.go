@@ -11,8 +11,8 @@ import (
 func main() {
 	//fmt.Println(countAndSay(5))
 
-	nums := []int{1, 2, 1, 2, 4, 7, 7}
-	fmt.Println(singleNumber(nums))
+	//nums := []int{1, 2, 1, 2, 4, 7, 7}
+	//fmt.Println(singleNumber(nums))
 	//runtime.GOMAXPROCS(8)
 
 	//各种斐波那歇数列
@@ -178,6 +178,15 @@ func main() {
 	//res := answers.Permute(nums)
 	//dumpSlice2(res)
 
+	//48. 旋转图像
+	matrix := [][]int{
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9},
+	}
+	answers.Rotate(matrix)
+	fmt.Printf("%v\n", matrix)
+
 	//??49. 字母异位词分组
 	//strs := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
 	//res := answers.GroupAnagrams(strs)
@@ -196,6 +205,10 @@ func main() {
 	//grid[1] = []int{1, 5, 1}
 	//grid[2] = []int{4, 2, 1}
 	//res := answers.MinPathSum(grid)
+	//fmt.Println(res)
+
+	//66. 加一
+	//res := answers.PlusOne([]int{7, 2, 8, 5, 0, 9, 1, 2, 9, 5, 3, 6, 6, 7, 3, 2, 8, 4, 3, 7, 9, 5, 7, 7, 4, 7, 4, 9, 4, 7, 0, 1, 1, 1, 7, 4, 0, 0, 6})
 	//fmt.Println(res)
 
 	//剑指 Offer 61. 扑克牌中的顺子
@@ -876,42 +889,4 @@ func singleNumber(nums []int) int {
 	}
 
 	return reduce
-}
-
-//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2y0c2/
-func intersect(nums1 []int, nums2 []int) []int {
-	sort.Ints(nums1)
-	sort.Ints(nums2)
-
-	size1 := len(nums1)
-	size2 := len(nums2)
-	var minVal int
-
-	minVal = size1
-	if size1 > size2 {
-		minVal = size2
-	}
-
-	middle := make([]int, 0, minVal)
-
-	for _, val := range nums1 {
-		if in_array(val, nums2) {
-			middle = append(middle, val)
-		}
-	}
-}
-func in_array(val int, nums []int) bool {
-	found := -1
-	for i := 0; i < len(nums); i++ {
-		if nums[i] == val {
-			found = i
-			break
-		}
-	}
-
-	if found == -1 {
-		return false
-	}
-
-	return true
 }
