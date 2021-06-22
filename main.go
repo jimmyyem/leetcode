@@ -126,6 +126,27 @@ func main() {
 	//res := answers.LetterCombinations(digits)
 	//dumpSliceString(res)
 
+	//19. 删除链表的倒数第 N 个结点
+	head := &answers.ListNode{
+		Val: 1,
+		Next: &answers.ListNode{
+			Val: 2,
+			Next: &answers.ListNode{
+				Val: 3,
+				Next: &answers.ListNode{
+					Val: 4,
+					Next: &answers.ListNode{
+						Val:  5,
+						Next: nil,
+					},
+				},
+			},
+		},
+	}
+	res := answers.RemoveNthFromEnd(head, 2)
+	fmt.Printf("%v\n", res)
+	dumpList(res)
+
 	//20. 有效的括号
 	//isValid := answers.IsValid("()[]{}")
 	//fmt.Println(isValid)
@@ -179,13 +200,13 @@ func main() {
 	//dumpSlice2(res)
 
 	//48. 旋转图像
-	matrix := [][]int{
-		{1, 2, 3},
-		{4, 5, 6},
-		{7, 8, 9},
-	}
-	answers.Rotate(matrix)
-	fmt.Printf("%v\n", matrix)
+	//matrix := [][]int{
+	//	{1, 2, 3},
+	//	{4, 5, 6},
+	//	{7, 8, 9},
+	//}
+	//answers.Rotate(matrix)
+	//fmt.Printf("%v\n", matrix)
 
 	//??49. 字母异位词分组
 	//strs := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
