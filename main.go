@@ -127,25 +127,25 @@ func main() {
 	//dumpSliceString(res)
 
 	//19. 删除链表的倒数第 N 个结点
-	head := &answers.ListNode{
-		Val: 1,
-		Next: &answers.ListNode{
-			Val: 2,
-			Next: &answers.ListNode{
-				Val: 3,
-				Next: &answers.ListNode{
-					Val: 4,
-					Next: &answers.ListNode{
-						Val:  5,
-						Next: nil,
-					},
-				},
-			},
-		},
-	}
-	res := answers.RemoveNthFromEnd(head, 2)
-	fmt.Printf("%v\n", res)
-	dumpList(res)
+	//head := &answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 2,
+	//		Next: &answers.ListNode{
+	//			Val: 3,
+	//			Next: &answers.ListNode{
+	//				Val: 4,
+	//				Next: &answers.ListNode{
+	//					Val:  5,
+	//					Next: nil,
+	//				},
+	//			},
+	//		},
+	//	},
+	//}
+	//res := answers.RemoveNthFromEnd(head, 2)
+	//fmt.Printf("%v\n", res)
+	//dumpList(res)
 
 	//20. 有效的括号
 	//isValid := answers.IsValid("()[]{}")
@@ -237,7 +237,7 @@ func main() {
 	//flags := answers.IsStraight(nums)
 	//println(flags)
 
-	//println("计算无符号二进制数里1的个数")
+	//剑指 Offer 15. 二进制中1的个数
 	//var num uint32 = 000000000100
 	//println(answers.HammingWeight(num))
 
@@ -246,6 +246,9 @@ func main() {
 	//res := answers.MaxProfit121(nums)
 	////res := answers.MaxProfit122(nums)
 	//fmt.Printf("%v\n", res)
+
+	//141. 环形链表
+
 
 	//150. 逆波兰表达式求值
 	//tokens := []string{"4", "13", "5", "/", "+"}
@@ -264,6 +267,27 @@ func main() {
 	//202. 快乐数
 	//res := answers.IsHappy(2)
 	//println(res)
+
+	//206. 反转链表
+	//234. 回文链表
+	//list := &answers.ListNode{
+	//	Val: 1,
+	//	Next: &answers.ListNode{
+	//		Val: 2,
+	//		Next: &answers.ListNode{
+	//			Val: 2,
+	//			Next: &answers.ListNode{
+	//				Val:  1,
+	//				Next: nil,
+	//			},
+	//		},
+	//	},
+	//}
+	//list = answers.ReverseList(list)
+	//dumpList(list)
+
+	//res := answers.IsPalindromeList(list)
+	//fmt.Println(res)
 
 	//350. 两个数组的交集 II
 	//res := answers.Intersect([]int{1, 2, 3}, []int{3, 4, 5})
