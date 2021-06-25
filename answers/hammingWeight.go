@@ -6,9 +6,7 @@ func HammingWeight(num uint32) int {
 	var count int = 0
 
 	for num > 0 {
-		if num&1 == 1 {
-			count++
-		}
+		count += int(num & 1)
 		num /= 2
 	}
 

@@ -7,34 +7,24 @@ func LevelOrder(root *TreeNode) (res [][]int) {
 		return
 	}
 
-	var depth float64
-	q := make([]*TreeNode, 0)
-	for {
-		if depth == 0 {
-			res = append(res, []int{root.Val})
-			q = append(q, root.Left, root.Right)
-		} else {
-			tmpSlice := make([]int, 0)
-			size := len(q) //当前q长度
-			for i := 0; i < size; i++ {
-				if q[i] != nil {
-					tmpSlice = append(tmpSlice, q[i].Val)
-					q = append(q, q[i].Left, q[i].Right)
-				}
-			}
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		tmpSlice := []int{}
+		tmpQ := []*TreeNode{}
 
-			if len(tmpSlice) > 0 { //本层有内容才放入res
-				res = append(res, tmpSlice)
-			} else { //结束条件，这里如果本层没有节点则说明已经结束
-				break
+		for i := 0; i < len(q); i++ {
+			if q[i] != nil {
+				tmpSlice = append(tmpSlice, q[i].Val)
+				tmpQ = append(tmpQ, q[i].Left, q[i].Right)
 			}
-
-			//这里如果有内容，则肯定是newSize>size
-			newSize := len(q)    //新的q长度
-			copy(q[:], q[size:]) //移动q，新追加的内容覆盖以前的内容
-			q = q[:newSize-size] //重新规划q的内容
 		}
-		depth++
+
+		if len(tmpQ) > 0 { //本层有内容才放入res
+			res = append(res, tmpSlice)
+			q = tmpQ
+		} else { //结束条件，这里如果本层没有节点则说明已经结束
+			break
+		}
 	}
 	return
 }

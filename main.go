@@ -232,13 +232,76 @@ func main() {
 	//res := answers.PlusOne([]int{7, 2, 8, 5, 0, 9, 1, 2, 9, 5, 3, 6, 6, 7, 3, 2, 8, 4, 3, 7, 9, 5, 7, 7, 4, 7, 4, 9, 4, 7, 0, 1, 1, 1, 7, 4, 0, 0, 6})
 	//fmt.Println(res)
 
+	//98. 验证二叉搜索树
+	//root := &answers.TreeNode{
+	//	Val: 2,
+	//	Left: &answers.TreeNode{
+	//		Val:   1,
+	//		Left:  nil,
+	//		Right: nil,
+	//	},
+	//	Right: &answers.TreeNode{
+	//		Val:   3,
+	//		Left:  nil,
+	//		Right: nil,
+	//	},
+	//}
+	//res := answers.IsValidBST(root)
+	//fmt.Println(res)
+
+	//101. 对称二叉树
+	//root := &answers.TreeNode{
+	//	Val: 1,
+	//	Left: &answers.TreeNode{
+	//		Val: 2,
+	//		Left: &answers.TreeNode{
+	//			Val:   3,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//		Right: &answers.TreeNode{
+	//			Val:   4,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//	Right: &answers.TreeNode{
+	//		Val: 2,
+	//		Left: &answers.TreeNode{
+	//			Val:   4,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//		Right: &answers.TreeNode{
+	//			Val:   3,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//}
+	//res := answers.IsSymmetric(root)
+	//fmt.Println(res)
+
+	//104. 二叉树的最大深度
+	//root := &answers.TreeNode{
+	//	Val: 1,
+	//	Left: nil,
+	//	Right: &answers.TreeNode{
+	//		Val: 20,
+	//		Left: nil,
+	//		Right: nil,
+	//	},
+	//}
+	//depth := answers.MaxDepth(root)
+	//fmt.Println(depth)
+
 	//剑指 Offer 61. 扑克牌中的顺子
 	//nums := []int{0, 0, 0, 19, 5}
 	//flags := answers.IsStraight(nums)
 	//println(flags)
 
 	//剑指 Offer 15. 二进制中1的个数
-	//var num uint32 = 000000000100
+	//var num uint32 = 0000011100100
 	//println(answers.HammingWeight(num))
 
 	//??121. 买卖股票的最佳时机
@@ -248,7 +311,6 @@ func main() {
 	//fmt.Printf("%v\n", res)
 
 	//141. 环形链表
-
 
 	//150. 逆波兰表达式求值
 	//tokens := []string{"4", "13", "5", "/", "+"}
@@ -465,38 +527,39 @@ func main() {
 	////res := answers.PostorderTraversal(root)
 	//fmt.Printf("%v\n", res)
 
-	//root := &answers.TreeNode{
-	//	Val: 1,
-	//	Left: &answers.TreeNode{
-	//		Val: 3,
-	//		Left: &answers.TreeNode{
-	//			Val:   5,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
-	//		Right: &answers.TreeNode{
-	//			Val:   3,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
-	//	},
-	//	Right: &answers.TreeNode{
-	//		Val:  2,
-	//		Left: nil,
-	//		Right: &answers.TreeNode{
-	//			Val:   9,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
-	//	},
-	//}
-	//res := answers.LevelOrder(root)
+	//102. 二叉树的层序遍历
+	root := &answers.TreeNode{
+		Val: 1,
+		Left: &answers.TreeNode{
+			Val: 3,
+			Left: &answers.TreeNode{
+				Val:   5,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &answers.TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &answers.TreeNode{
+			Val:  2,
+			Left: nil,
+			Right: &answers.TreeNode{
+				Val:   9,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+	res := answers.LevelOrder(root)
 	//res := answers.LevelOrderBottom(root)
 	//res := answers.ZigzagLevelOrder(root)
 	//res := answers.RightSideView(root)
 	//res := answers.LargestValues(root)
 	//res := answers.AverageOfLevels(root)
-	//fmt.Printf("%v\n", res)
+	fmt.Printf("%v\n", res)
 
 	//116. 填充每个节点的下一个右侧节点指针
 	//root := &answers.Node{
