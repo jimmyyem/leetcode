@@ -351,6 +351,10 @@ func main() {
 	//res := answers.IsPalindromeList(list)
 	//fmt.Println(res)
 
+	//278. 第一个错误的版本
+	//res := answers.FirstBadVersion(8)
+	//fmt.Println(res)
+
 	//350. 两个数组的交集 II
 	//res := answers.Intersect([]int{1, 2, 3}, []int{3, 4, 5})
 	//fmt.Printf("%v\n", res)
