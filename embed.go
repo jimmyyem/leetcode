@@ -15,7 +15,7 @@ var ignoreByte []byte
 //go:embed static/hello2.txt
 var f embed.FS
 
-func main() {
+func main1() {
 	fmt.Println(ignoreStr)
 	fmt.Println(ignoreByte, string(ignoreByte))
 

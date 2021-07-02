@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-func main() {
+func main3() {
 	nums := []int{1, 3, 4, 5, 6, 8, 12, 14, 16}
 	//rest := binarySearch(nums, 8)
 	//rest := binarySearchPos(nums, 7)

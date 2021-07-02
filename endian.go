@@ -48,7 +48,7 @@ func testLittleEndian() {
 	fmt.Printf("bytes to int32: %d\n\n", convInt)
 }
 
-func main() {
+func main2() {
 	fmt.Println(INT_SIZE, unsafe.Sizeof(0))
 
 	systemEdian()
