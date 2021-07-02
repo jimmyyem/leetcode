@@ -3,7 +3,6 @@ package lib
 //给定中缀表达式，输出后缀表达式
 func InfixToSuffix(s string) string {
 	suffix := make([]byte, len(s))
-	stack := make([]byte, len(s))
 
 	for i := 0; i < len(s); i++ {
 		switch s[i] {
