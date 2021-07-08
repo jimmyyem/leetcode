@@ -453,9 +453,9 @@ func main() {
 	//println(res)
 
 	//268. 丢失的数字
-	nums := []int{0, 1, 2, 3, 4, 5, 6, 7, 9}
-	res := answers.MissingNum(nums)
-	println(res)
+	//nums := []int{0, 1, 2, 3, 4, 5, 6, 7, 9}
+	//res := answers.MissingNum(nums)
+	//println(res)
 
 	//剑指 Offer 03. 数组中重复的数字
 	//nums := []int{2, 3, 1, 0, 2, 5, 3}
