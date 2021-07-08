@@ -321,10 +321,16 @@ func main() {
 	//res := answers.Infix2Suffix(tokens)
 	//fmt.Printf("%v\n", res)
 
+	//155. 最小栈
+
 	//190.颠倒二进制数
 	//var num uint32 = 4294967293
 	//res := answers.ReverseBits(num)
 	//println(res)
+
+	//198. 打家劫舍
+	//maxVal := answers.Rob([]int{2, 1, 1, 2})
+	//fmt.Println(maxVal)
 
 	//202. 快乐数
 	//res := answers.IsHappy(2)
@@ -358,6 +364,13 @@ func main() {
 	//350. 两个数组的交集 II
 	//res := answers.Intersect([]int{1, 2, 3}, []int{3, 4, 5})
 	//fmt.Printf("%v\n", res)
+
+	//384. 打乱数组
+	//obj := answers.Constructor([]int{1, 21, 3, 14, 5})
+	//shuff := obj.Shuffle()
+	//fmt.Printf("%v\n", shuff)
+	//rest := obj.Reset()
+	//fmt.Printf("%v\n", rest)
 
 	//461. 汉明距离
 	//res := answers.HammingDistance2(1, 4)
@@ -438,6 +451,11 @@ func main() {
 	//nums := []int{0, 1, 2, 3, 4, 5, 6, 7, 9}
 	//res := answers.MissingNumber(nums)
 	//println(res)
+
+	//268. 丢失的数字
+	nums := []int{0, 1, 2, 3, 4, 5, 6, 7, 9}
+	res := answers.MissingNum(nums)
+	println(res)
 
 	//剑指 Offer 03. 数组中重复的数字
 	//nums := []int{2, 3, 1, 0, 2, 5, 3}
@@ -532,38 +550,38 @@ func main() {
 	//fmt.Printf("%v\n", res)
 
 	//102. 二叉树的层序遍历
-	root := &answers.TreeNode{
-		Val: 1,
-		Left: &answers.TreeNode{
-			Val: 3,
-			Left: &answers.TreeNode{
-				Val:   5,
-				Left:  nil,
-				Right: nil,
-			},
-			Right: &answers.TreeNode{
-				Val:   3,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-		Right: &answers.TreeNode{
-			Val:  2,
-			Left: nil,
-			Right: &answers.TreeNode{
-				Val:   9,
-				Left:  nil,
-				Right: nil,
-			},
-		},
-	}
-	res := answers.LevelOrder(root)
+	//root := &answers.TreeNode{
+	//	Val: 1,
+	//	Left: &answers.TreeNode{
+	//		Val: 3,
+	//		Left: &answers.TreeNode{
+	//			Val:   5,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//		Right: &answers.TreeNode{
+	//			Val:   3,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//	Right: &answers.TreeNode{
+	//		Val:  2,
+	//		Left: nil,
+	//		Right: &answers.TreeNode{
+	//			Val:   9,
+	//			Left:  nil,
+	//			Right: nil,
+	//		},
+	//	},
+	//}
+	//res := answers.LevelOrder(root)
 	//res := answers.LevelOrderBottom(root)
 	//res := answers.ZigzagLevelOrder(root)
 	//res := answers.RightSideView(root)
 	//res := answers.LargestValues(root)
 	//res := answers.AverageOfLevels(root)
-	fmt.Printf("%v\n", res)
+	//fmt.Printf("102 answer : %v\n", res)
 
 	//116. 填充每个节点的下一个右侧节点指针
 	//root := &answers.Node{
@@ -1001,4 +1019,46 @@ func singleNumber(nums []int) int {
 	}
 
 	return reduce
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xngt85/
+func fizzBuzz(n int) []string {
+	list := make([]string, 0, n)
+	for i := 1; i <= n; i++ {
+		if i%3 == 0 {
+			if i%5 == 0 {
+				list = append(list, "FizzBuzz")
+			} else {
+				list = append(list, "Fizz")
+			}
+			continue
+		}
+		if i%5 == 0 {
+			list = append(list, "Buzz")
+			continue
+		}
+		list = append(list, strconv.Itoa(i))
+	}
+
+	return list
+}
+
+//https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/xnzlu6/
+func countPrimes(n int) int {
+	isPrime := make([]bool, n)
+	for i := range isPrime {
+		isPrime[i] = true
+	}
+
+	count := 0
+	for i := 2; i < n; i++ {
+		if isPrime[i] {
+			count++
+			for j := 2; j*i < n; j++ {
+				isPrime[j*i] = false
+			}
+		}
+	}
+
+	return count
 }
