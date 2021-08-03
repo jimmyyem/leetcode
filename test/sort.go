@@ -1,10 +1,10 @@
-package main
+package test
 
 import (
 	"fmt"
 )
 
-func main4() {
+func mainSort() {
 	//字符串类型一维数组排序
 	//strs := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
 	//sort.Slice(strs, func(i, j int) bool {

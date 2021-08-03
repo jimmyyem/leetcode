@@ -1,4 +1,4 @@
-package main
+package test
 
 import (
 	"embed"
@@ -15,7 +15,7 @@ var ignoreByte []byte
 //go:embed static/hello2.txt
 var f embed.FS
 
-func main1() {
+func mainEmbed() {
 	fmt.Println(ignoreStr)
 	fmt.Println(ignoreByte, string(ignoreByte))
 

@@ -2,4 +2,7 @@ module leetcode
 
 go 1.16
 
-require github.com/KeKe-Li/log v0.0.0-20210318011945-a7953074b8b5 // indirect
+require (
+	github.com/speps/go-hashids/v2 v2.0.1
+	rsc.io/quote v1.5.2 // indirect
+)

@@ -1,4 +1,4 @@
-package main
+package test
 
 import (
 	"encoding/binary"
@@ -48,7 +48,7 @@ func testLittleEndian() {
 	fmt.Printf("bytes to int32: %d\n\n", convInt)
 }
 
-func main2() {
+func mainEndian() {
 	fmt.Println(INT_SIZE, unsafe.Sizeof(0))
 
 	systemEdian()

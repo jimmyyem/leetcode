@@ -1,0 +1,5 @@
+# github.com/speps/go-hashids/v2 v2.0.1
+## explicit
+github.com/speps/go-hashids/v2
+# rsc.io/quote v1.5.2
+## explicit
