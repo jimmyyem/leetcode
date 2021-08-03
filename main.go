@@ -3,13 +3,18 @@ package main
 import (
 	"fmt"
 	"leetcode/answers"
+	"leetcode/morestrings"
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/google/go-cmp/cmp"
 )
 
 func main() {
-	//fmt.Println(countAndSay(5))
+	fmt.Println(morestrings.ReverseRunes("abc"))
+	fmt.Println(cmp.Diff("hello go", "Hello Go"))
+	fmt.Println(countAndSay(5))
 
 	//nums := []int{1, 2, 1, 2, 4, 7, 7}
 	//fmt.Println(singleNumber(nums))
