@@ -1,20 +1,62 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"leetcode/answers"
-	"leetcode/morestrings"
+	"log"
+	"net/http"
 	"sort"
 	"strconv"
 	"strings"
-
-	"github.com/google/go-cmp/cmp"
 )
 
+type Token struct {
+	Rsa_id      int    `json:"rsa_id"`
+	Device_list string `json:"device_list"`
+	Session_id  string `json:"session_id"`
+	Id          int64  `json:"id"`
+	Flag        int    `json:"flag"`
+	Create_time string `json:"create_time"`
+	Private     string `json:"private"`
+	User_name   string `json:"user_name"`
+	Public      string `json:"public"`
+}
+
+type Body struct {
+	Status     string `json:"status"`
+	Phone_type string `json:"phone_type"`
+	Avatar     string `json:"avatar"`
+	Hometown   string `json:"hometown"`
+	Version_id string `json:"version_id"`
+	Token      Token  `json:"token"`
+}
+
+type User struct {
+	Msg  string `json:"msg"`
+	Body Body   `json:"body"`
+	Code int    `json:"code"`
+}
+
 func main() {
-	fmt.Println(morestrings.ReverseRunes("abc"))
-	fmt.Println(cmp.Diff("hello go", "Hello Go"))
-	fmt.Println(countAndSay(5))
+	res, err := http.Get("http://localhost/db.json")
+	if err != nil {
+		log.Fatal("http get failed", err.Error())
+	}
+	defer res.Body.Close()
+
+	u := User{}
+	err = json.NewDecoder(res.Body).Decode(&u)
+	if err != nil {
+		log.Fatal("json unmarshal failed", err.Error())
+	}
+	fmt.Printf("%+v\n", u)
+
+	buf, err := json.Marshal(u)
+	fmt.Printf("%s %v\n", buf, err)
+
+
+	//fmt.Println(countAndSay(5))
 
 	//nums := []int{1, 2, 1, 2, 4, 7, 7}
 	//fmt.Println(singleNumber(nums))
