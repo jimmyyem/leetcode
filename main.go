@@ -1,14 +1,14 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"leetcode/answers"
 	"log"
-	"net/http"
+	"runtime"
 	"sort"
 	"strconv"
 	"strings"
+	"github.com/pkg/profile"
 )
 
 type Token struct {
@@ -39,28 +39,35 @@ type User struct {
 }
 
 func main() {
-	res, err := http.Get("http://localhost/db.json")
-	if err != nil {
-		log.Fatal("http get failed", err.Error())
-	}
-	defer res.Body.Close()
+	// // 获取接口内容并用struct来接收内容
+	//res, err := http.Get("http://localhost/db.json")
+	//if err != nil {
+	//	log.Fatal("http get failed", err.Error())
+	//}
+	//defer res.Body.Close()
+	//
+	//u := User{}
+	//err = json.NewDecoder(res.Body).Decode(&u)
+	//if err != nil {
+	//	log.Fatal("json unmarshal failed", err.Error())
+	//}
+	//fmt.Printf("%+v\n", u)
+	//
+	//buf, err := json.Marshal(u)
+	//fmt.Printf("%s %v\n", buf, err)
 
-	u := User{}
-	err = json.NewDecoder(res.Body).Decode(&u)
-	if err != nil {
-		log.Fatal("json unmarshal failed", err.Error())
-	}
-	fmt.Printf("%+v\n", u)
-
-	buf, err := json.Marshal(u)
-	fmt.Printf("%s %v\n", buf, err)
-
+	p := profile.Start(profile.MemProfile, profile.ProfilePath("./debug"), profile.NoShutdownHook)
+	readMemStats()
+	test()
+	readMemStats()
+	p.Stop()
 
 	//fmt.Println(countAndSay(5))
-
+	//
 	//nums := []int{1, 2, 1, 2, 4, 7, 7}
 	//fmt.Println(singleNumber(nums))
 	//runtime.GOMAXPROCS(8)
+
 
 	//各种斐波那歇数列
 	//start := time.Now()
@@ -1108,4 +1115,29 @@ func countPrimes(n int) int {
 	}
 
 	return count
+}
+
+
+func readMemStats() {
+
+	var ms runtime.MemStats
+
+	runtime.ReadMemStats(&ms)
+
+	log.Printf(" ===> Alloc:%d(bytes) HeapIdle:%d(bytes) HeapReleased:%d(bytes)", ms.Alloc, ms.HeapIdle, ms.HeapReleased)
+}
+
+func test() {
+	//slice 会动态扩容，用slice来做堆内存申请
+	container := make([]int, 8)
+
+	log.Println(" ===> loop begin.")
+	for i := 0; i < 32*1000*1000; i++ {
+		container = append(container, i)
+		if i == 16*1000*1000 {
+			readMemStats()
+		}
+	}
+
+	log.Println(" ===> loop end.")
 }
