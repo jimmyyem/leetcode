@@ -8,66 +8,14 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-	"github.com/pkg/profile"
 )
 
-type Token struct {
-	Rsa_id      int    `json:"rsa_id"`
-	Device_list string `json:"device_list"`
-	Session_id  string `json:"session_id"`
-	Id          int64  `json:"id"`
-	Flag        int    `json:"flag"`
-	Create_time string `json:"create_time"`
-	Private     string `json:"private"`
-	User_name   string `json:"user_name"`
-	Public      string `json:"public"`
-}
-
-type Body struct {
-	Status     string `json:"status"`
-	Phone_type string `json:"phone_type"`
-	Avatar     string `json:"avatar"`
-	Hometown   string `json:"hometown"`
-	Version_id string `json:"version_id"`
-	Token      Token  `json:"token"`
-}
-
-type User struct {
-	Msg  string `json:"msg"`
-	Body Body   `json:"body"`
-	Code int    `json:"code"`
-}
-
 func main() {
-	// // 获取接口内容并用struct来接收内容
-	//res, err := http.Get("http://localhost/db.json")
-	//if err != nil {
-	//	log.Fatal("http get failed", err.Error())
-	//}
-	//defer res.Body.Close()
-	//
-	//u := User{}
-	//err = json.NewDecoder(res.Body).Decode(&u)
-	//if err != nil {
-	//	log.Fatal("json unmarshal failed", err.Error())
-	//}
-	//fmt.Printf("%+v\n", u)
-	//
-	//buf, err := json.Marshal(u)
-	//fmt.Printf("%s %v\n", buf, err)
-
-	p := profile.Start(profile.MemProfile, profile.ProfilePath("./debug"), profile.NoShutdownHook)
-	readMemStats()
-	test()
-	readMemStats()
-	p.Stop()
-
 	//fmt.Println(countAndSay(5))
 	//
 	//nums := []int{1, 2, 1, 2, 4, 7, 7}
 	//fmt.Println(singleNumber(nums))
 	//runtime.GOMAXPROCS(8)
-
 
 	//各种斐波那歇数列
 	//start := time.Now()
@@ -285,6 +233,10 @@ func main() {
 	//66. 加一
 	//res := answers.PlusOne([]int{7, 2, 8, 5, 0, 9, 1, 2, 9, 5, 3, 6, 6, 7, 3, 2, 8, 4, 3, 7, 9, 5, 7, 7, 4, 7, 4, 9, 4, 7, 0, 1, 1, 1, 7, 4, 0, 0, 6})
 	//fmt.Println(res)
+
+	//76.
+	res := answers.MinWindow("abc", "ac")
+	fmt.Println("res is", res)
 
 	//98. 验证二叉搜索树
 	//root := &answers.TreeNode{
@@ -1116,7 +1068,6 @@ func countPrimes(n int) int {
 
 	return count
 }
-
 
 func readMemStats() {
 

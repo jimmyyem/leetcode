@@ -17,10 +17,14 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 			tmp += l2.Val
 			l2 = l2.Next
 		}
+		// tmp%10 只记录个位数
 		list.Next = &ListNode{tmp % 10, nil}
+		// 超过10的保留1，下次记录到高位上
 		tmp = tmp / 10
+		// list列表后移
 		list = list.Next
 	}
 
+	// 通过result返回，result目前指向列表头
 	return result.Next
 }
