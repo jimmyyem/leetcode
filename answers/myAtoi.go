@@ -20,8 +20,9 @@ func MyAtoi(str string) int {
 		case '+':
 			if firstNumber {
 				end = true
+			} else {
+				firstNumber = true
 			}
-			firstNumber = true
 		case ' ':
 			if firstNumber {
 				end = true
