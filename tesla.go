@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"sort"
 )
 
@@ -26,9 +27,73 @@ func main() {
 
 	//res = search([]int{4, 5, 6, 7, 0, 1, 2}, 3)
 
-	params := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
-	res = groupAnagrams(params)
+	//params := []string{"eat", "tea", "tan", "ate", "nat", "bat"}
+	//res = groupAnagrams(params)
+
+	//res = reverseNumber(123)
+
+	
 	fmt.Println("res is", res)
+}
+
+
+
+// https://leetcode-cn.com/problems/reorder-list/
+// 143. 重排链表
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reorderList(head *ListNode) {
+	nodeList := []*ListNode{}
+	for node := head; node != nil; node = node.Next {
+		nodeList = append(nodeList, node)
+	}
+
+	start, end := 0, len(nodeList)-1
+	for start < end {
+		// 0=>n, 1=>n-1
+		nodeList[start].Next = nodeList[end]
+		start++
+
+		// start++ end-- 时候node可能重叠
+		if start == end {
+			break
+		}
+
+		// n=>1, n-1=>2
+		nodeList[end].Next = nodeList[start]
+		end--
+	}
+	nodeList[start].Next = nil
+	return
+}
+
+// https://leetcode-cn.com/problems/reverse-integer/
+// 7. 整数反转
+func reverseNumber(x int) int {
+	var flag, res = 1, 0
+	if x < 0 {
+		flag = -1
+		x = -x
+	}
+
+	for x > 0 {
+		res = res*10 + x%10
+		x /= 10
+
+		if res > math.MaxInt32 {
+			return 0
+		}
+		if res < math.MinInt32 {
+			return 0
+		}
+	}
+
+	return res * flag
 }
 
 // https://leetcode-cn.com/problems/group-anagrams/

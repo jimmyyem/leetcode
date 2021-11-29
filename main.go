@@ -532,6 +532,10 @@ func main() {
 	//answers.MergeArray(nums1, 3, nums2, 3)
 	//dumpSlice(nums1)
 
+	//143. 重排链表
+	//res := answers.ReorderList()
+	//dumpList(res)
+
 	//144. 二叉树的前序遍历
 	//94. 二叉树的中序遍历
 	//145. 二叉树的后序遍历
