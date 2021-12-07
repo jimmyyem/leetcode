@@ -234,9 +234,9 @@ func main() {
 	//res := answers.PlusOne([]int{7, 2, 8, 5, 0, 9, 1, 2, 9, 5, 3, 6, 6, 7, 3, 2, 8, 4, 3, 7, 9, 5, 7, 7, 4, 7, 4, 9, 4, 7, 0, 1, 1, 1, 7, 4, 0, 0, 6})
 	//fmt.Println(res)
 
-	//76.
-	res := answers.MinWindow("abc", "ac")
-	fmt.Println("res is", res)
+	//76. 最小覆盖子串
+	//res := answers.MinWindow("abc", "ac")
+	//fmt.Println("res is", res)
 
 	//98. 验证二叉搜索树
 	//root := &answers.TreeNode{
@@ -654,9 +654,18 @@ func main() {
 	//var nums = []int{0, 1, 0, 3, 12}
 	//answers.MoveZeroes(nums)
 
+	//287. 寻找重复数
+	//var nums = []int{1, 2, 3, 4, 4}
+	//dupNum := answers.FindDuplicate(nums)
+	//fmt.Println(dupNum)
+
 	//316. 去除重复字母
 	//res := answers.RemoveDuplicateLetters("")
 	//fmt.Println(res)
+
+	//338. 比特位计数
+	//countArr := answers.CountBits(7)
+	//println(countArr)
 
 	//692. 前K个高频单词
 	//str := []string{"i", "love", "leetcode", "i", "love", "coding"}
@@ -704,11 +713,11 @@ func main() {
 	//		Next: &answers.ListNode{
 	//			Val: 3,
 	//			Next: &answers.ListNode{
-	//				Val: 3,
+	//				Val: 4,
 	//				Next: &answers.ListNode{
-	//					Val: 3,
+	//					Val: 5,
 	//					Next: &answers.ListNode{
-	//						Val:  4,
+	//						Val:  6,
 	//						Next: nil,
 	//					},
 	//				},
@@ -716,7 +725,8 @@ func main() {
 	//		},
 	//	},
 	//}
-	//res := answers.GetKthFromEnd(head, 2)
+	//res := answers.GetKthFromEnd(head, 3)
+	//dumpList(res)
 	//res := answers.Middle(head)
 	//res := answers.RemoveDupulicateNode(head)
 

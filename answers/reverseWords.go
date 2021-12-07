@@ -14,8 +14,8 @@ func ReverseWords(s string) string {
 	}
 
 	//去除空格函数
-	trimBothWork := func(s string) string {
-		left, right := 0, len(s)-1
+	trimWholdWord := func(s string) string {
+		left, right := 0, 0
 		for left < right {
 			if s[left] == ' ' {
 				left++
@@ -38,7 +38,7 @@ func ReverseWords(s string) string {
 		return string(s)
 	}
 
-	s = trimBothWork(s)
+	s = trimWholdWord(s)
 
 	var word = make([]byte, 0)
 	var res = make([]byte, 0, len(s))

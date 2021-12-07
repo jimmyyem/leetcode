@@ -54,13 +54,17 @@ minVal
 maxVal
 */
 func validBST(root *TreeNode, minVal, maxVal int) bool {
+	// 这是代表到最后的子节点了
 	if root == nil {
 		return true
 	}
+
+	// 所有判断是否合规的条件只有这一条，针对每个节点传入的值不同
 	if root.Val <= minVal || root.Val >= maxVal {
 		return false
 	}
 
+	// 分别判断左节点和右节点，然后递归
 	return validBST(root.Left, minVal, root.Val) &&
 		validBST(root.Right, root.Val, maxVal)
 }

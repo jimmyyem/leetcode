@@ -1,19 +1,66 @@
 package main
 
 import (
+	"container/list"
 	"fmt"
+	"leetcode/answers"
 	"math"
 	"sort"
+	"strconv"
 )
 
 var (
 	res interface{}
 )
 
+type Element struct {
+	key, value int
+}
+
+func printList(l *list.List) {
+	// 正序
+	for e := l.Front(); e != nil; e = e.Next() {
+		println(e.Value.(Element).key, e.Value.(Element).value)
+	}
+	// 倒叙
+	//for e := l.Back(); e != nil; e = e.Prev() {
+	//	println(e.Value.(Element).key, e.Value.(Element).value)
+	//}
+	println("==========")
+}
+
 func main() {
-	const sample = "\xbd\xb2\x3d\xbc\x20\xe2\x8c\x98"
-	fmt.Println(sample)
-	fmt.Printf("%+q\n", sample)
+	//const sample = "\xbd\xb2\x3d\xbc\x20\xe2\x8c\x98"
+	//fmt.Println(sample)
+	//fmt.Printf("%+q\n", sample)
+
+	//lst := list.New()
+	//node1 := Element{
+	//	key:   1,
+	//	value: 1,
+	//}
+	//node2 := Element{
+	//	key:   2,
+	//	value: 2,
+	//}
+	//node3 := Element{
+	//	key:   3,
+	//	value: 3,
+	//}
+	//node4 := Element{
+	//	key:   4,
+	//	value: 4,
+	//}
+	//
+	//lst.PushFront(node1)
+	//printList(lst)
+	//
+	//lst.PushFront(node2)
+	//printList(lst)
+	//
+	//lst.PushFront(node3)
+	//lst.PushBack(node4)
+	//printList(lst)
 
 	//res := isValidSymbol("()[]{}")
 
@@ -32,11 +79,183 @@ func main() {
 
 	//res = reverseNumber(123)
 
-	
-	fmt.Println("res is", res)
+	//res = findRepeatedDnaSequences("AAAAAAAAAAA")
+
+	//res = searchRange([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 6, 6, 6, 8, 10, 10}, 4)
+
+	//res = findClosestElements([]int{1, 2, 3, 4, 5}, 4, 3)
+
+	//res = maxSubArray([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4})
+
+	res = pivotIndex([]int{1, 7, 3, 6, 5, 6})
+	println("res is", res)
 }
 
+// https://leetcode-cn.com/problems/maximum-subarray/
+// 53. 最大子数组和
+func maxSubArray(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
 
+	var (
+		currValue int
+		lastValue = nums[0]
+		maxSum    = nums[0]
+	)
+
+	for i := 1; i < len(nums); i++ {
+		currValue = max(lastValue+nums[i], nums[i])
+		if currValue > maxSum {
+			maxSum = currValue
+		}
+		lastValue = currValue
+	}
+
+	return maxSum
+}
+
+// https://leetcode-cn.com/problems/find-k-closest-elements/
+// 658. 找到 K 个最接近的元素
+func findClosestElements(arr []int, k int, x int) []int {
+	start := 0
+	end := len(arr) - k
+
+	for start < end {
+		mid := start + (end-start)/2
+
+		// 以一段为移动步长，同时利用二分性质比较最左边与x的差，和最右边与x的差，判断是左移（修改right）还是右移（修改left）
+		if x-arr[mid] > arr[mid+k]-x {
+			start = mid + 1
+		} else {
+			end = mid
+		}
+	}
+	//println(start, end, k)
+
+	return arr[start : start+k]
+}
+
+// https://leetcode-cn.com/problems/repeated-dna-sequences/
+// 187. 重复的DNA序列
+func findRepeatedDnaSequences(s string) []string {
+	cache := map[string]int{}
+	n := len(s)
+	res := []string{}
+
+	for i := 0; i+10 <= n; i++ {
+		key := s[i : i+10]
+		cache[key]++
+	}
+	fmt.Printf("%+v", cache)
+
+	for str, val := range cache {
+		if val > 1 {
+			res = append(res, str)
+		}
+	}
+
+	return res
+}
+
+// https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/
+// 150. 逆波兰表达式求值
+func evalRPN(tokens []string) int {
+	buf := make([]int, 0, len(tokens))
+	for _, val := range tokens {
+		switch val {
+		case "+", "-", "*", "/":
+			// 区分 + - * / 拿出操作数 做运算
+			n := len(buf)
+			first := buf[n-2]
+			second := buf[n-1]
+			buf = buf[:n-2]
+			var temp int
+			if val == "+" {
+				temp = first + second
+			} else if val == "-" {
+				temp = first - second
+			} else if val == "*" {
+				temp = first * second
+			} else {
+				temp = first / second
+			}
+
+			buf = append(buf, temp)
+		default:
+			num, _ := strconv.Atoi(val)
+			buf = append(buf, num)
+		}
+	}
+
+	if len(buf) == 1 {
+		return buf[0]
+	}
+
+	return 0
+}
+
+// https://leetcode-cn.com/problems/lru-cache/
+// 146. LRU 缓存机制
+type entry struct {
+	key, value int
+}
+
+type LRUCache struct {
+	cap   int
+	cache map[int]*list.Element
+	lst   *list.List
+}
+
+func Constructor(capacity int) LRUCache {
+	return LRUCache{
+		cap:   0,
+		cache: map[int]*list.Element{},
+		lst:   list.New(),
+	}
+}
+
+func (c *LRUCache) Get(key int) int {
+	value := c.cache[key]
+	if value == nil {
+		return -1
+	}
+
+	c.lst.MoveToFront(value)
+	return value.Value.(*entry).value
+}
+
+func (c *LRUCache) Put(key, value int) {
+	e := c.cache[key]
+	if e != nil {
+		e.Value = entry{
+			key:   key,
+			value: value,
+		}
+		c.lst.MoveToFront(e)
+		return
+	}
+
+	newElement := c.lst.PushFront(entry{
+		key:   key,
+		value: value,
+	})
+	c.cache[key] = newElement
+
+	if len(c.cache) > c.cap {
+		lastKey := c.lst.Back().Value.(entry).key
+		delete(c.cache, lastKey)
+	}
+
+	return
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * obj := Constructor(capacity);
+ * param_1 := obj.Get(key);
+ * obj.Put(key,value);
+ */
 
 // https://leetcode-cn.com/problems/reorder-list/
 // 143. 重排链表
@@ -47,30 +266,30 @@ func main() {
  *     Next *ListNode
  * }
  */
-func reorderList(head *ListNode) {
-	nodeList := []*ListNode{}
-	for node := head; node != nil; node = node.Next {
-		nodeList = append(nodeList, node)
-	}
-
-	start, end := 0, len(nodeList)-1
-	for start < end {
-		// 0=>n, 1=>n-1
-		nodeList[start].Next = nodeList[end]
-		start++
-
-		// start++ end-- 时候node可能重叠
-		if start == end {
-			break
-		}
-
-		// n=>1, n-1=>2
-		nodeList[end].Next = nodeList[start]
-		end--
-	}
-	nodeList[start].Next = nil
-	return
-}
+//func reorderList(head *ListNode) {
+//	nodeList := []*ListNode{}
+//	for node := head; node != nil; node = node.Next {
+//		nodeList = append(nodeList, node)
+//	}
+//
+//	start, end := 0, len(nodeList)-1
+//	for start < end {
+//		// 0=>n, 1=>n-1
+//		nodeList[start].Next = nodeList[end]
+//		start++
+//
+//		// start++ end-- 时候node可能重叠
+//		if start == end {
+//			break
+//		}
+//
+//		// n=>1, n-1=>2
+//		nodeList[end].Next = nodeList[start]
+//		end--
+//	}
+//	nodeList[start].Next = nil
+//	return
+//}
 
 // https://leetcode-cn.com/problems/reverse-integer/
 // 7. 整数反转
@@ -95,6 +314,31 @@ func reverseNumber(x int) int {
 
 	return res * flag
 }
+
+// https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+// 102. 二叉树的层序遍历
+//func levelOrder(root *TreeNode) (res [][]int) {
+//	q := []*TreeNode{root}
+//
+//	for len(q) > 0 {
+//		tmpValue := []int{}
+//		tmpNode := []*TreeNode{}
+//
+//		for _, val := range q {
+//			tmpValue = append(tmpValue, val.Value)
+//			tmpNode = append(tmpNode, val.Left, val.Right)
+//		}
+//
+//		if len(tmpNode) > 0 {
+//			res = append(res, tmpValue)
+//			q = tmpNode
+//		} else {
+//			break
+//		}
+//	}
+//
+//	return
+//}
 
 // https://leetcode-cn.com/problems/group-anagrams/
 // 49. 字母异位词分组
@@ -157,6 +401,45 @@ func search(nums []int, target int) int {
 		}
 	}
 	return -1
+}
+
+// https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+// 34. 在排序数组中查找元素的第一个和最后一个位置
+func searchRange(nums []int, target int) []int {
+	getPos := func(nums []int, target int) int {
+		var start, end = 0, len(nums) - 1
+		for start <= end {
+			mid := start + (end-start)/2
+			if target == nums[mid] {
+				return mid
+			} else if target == nums[start] {
+				return start
+			} else if target == nums[end] {
+				return end
+			} else if target > nums[start] && target < nums[mid] {
+				end = mid - 1
+			} else {
+				start = mid + 1
+			}
+		}
+		return -1
+	}
+
+	pos := getPos(nums, target)
+	if pos == -1 {
+		return []int{-1, -1}
+	}
+
+	// 找到内容后向左、向右延伸
+	left, right := pos, pos
+	for left-1 >= 0 && nums[left-1] == target {
+		left--
+	}
+	for right+1 < len(nums) && nums[right+1] == target {
+		right++
+	}
+
+	return []int{left, right}
 }
 
 // https://leetcode-cn.com/problems/next-permutation/
@@ -264,7 +547,7 @@ func twoSum(nums []int, target int) []int {
 // https://leetcode-cn.com/problems/valid-parentheses/
 // 20. 有效的括号
 func isValidSymbol(s string) bool {
-	stack := NewStack()
+	stack := NewStackTesla()
 	for _, val := range s {
 		//fmt.Printf("%v\n", val)
 		switch val {
@@ -316,7 +599,7 @@ func (s *StackTesla) Pop() rune {
 	return last
 }
 
-func NewStack() *StackTesla {
+func NewStackTesla() *StackTesla {
 	return &StackTesla{
 		Data: make([]rune, 0, 8),
 		Size: 0,
@@ -328,4 +611,34 @@ func max(x, y int) int {
 		return x
 	}
 	return y
+}
+
+// https://leetcode-cn.com/problems/find-pivot-index/
+// 724. 寻找数组的中心下标	1, 7, 3, 6, 5, 6
+func pivotIndex(nums []int) int {
+	var leftSum, rightSum, totalSum int
+	for _, val := range nums {
+		totalSum += val
+	}
+	// leftSum + nums[i] + rightSum = totalSum
+	for i := 0; i < len(nums); i++ {
+		rightSum = totalSum - leftSum - nums[i]
+		if leftSum == rightSum {
+			return i
+		}
+		leftSum += nums[i]
+	}
+
+	return -1
+}
+
+// https://mp.weixin.qq.com/s?__biz=Mzg3NDU4MDQ3Mw==&mid=2247491440&idx=2&sn=2937dfd27da220af83bf263d8559a1b2&chksm=cecfcfe6f9b846f045cca09988f47ced4e026d0b5f64f8ee99154a8d5fd8506eddce1c87b31f&cur_album_id=1839734456706760708&scene=190#rd
+// 删除链表里重复元素
+func deleteDuplicates(head *answers.ListNode) *answers.ListNode {
+	slow, fast := head, head.Next
+	for slow.Next != nil && fast.Next != nil {
+
+	}
+
+	return head
 }
