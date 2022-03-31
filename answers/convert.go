@@ -6,6 +6,7 @@ import (
 )
 
 //https://leetcode-cn.com/problems/zigzag-conversion/
+//https://leetcode-cn.com/problems/zigzag-conversion/solution/ren-zhe-suan-fa-chao-qing-xi-yi-dong-bai-40yv/
 //6. Z 字形变换
 func Convert(s string, numRows int) string {
 	if numRows == 1 {

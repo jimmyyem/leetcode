@@ -21,3 +21,30 @@ func PostorderTraversal(root *TreeNode) (res []int) {
 	postorder(root)
 	return
 }
+
+func postorderTraversal(root *TreeNode) (res []int) {
+	if root == nil {
+		return []int{}
+	}
+
+	stack := NewStackNode()
+
+	// 把所有Left入栈
+	for root != nil {
+		stack.Push(root)
+		root = root.Left
+	}
+
+	for !stack.IsEmpty() {
+		pop, _ := stack.Pop()
+		node := pop.(*TreeNode)
+
+		if node.Right != nil {
+			stack.Push(node.Right)
+		}
+
+		res = append(res, node.Val)
+	}
+
+	return
+}

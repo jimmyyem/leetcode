@@ -3,15 +3,12 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"image"
-	"image/png"
 	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"strings"
 	"sync"
 )
@@ -149,34 +146,4 @@ func testCmd() {
 	}
 	fmt.Println(string(ip))
 	fmt.Println(strings.Trim(string(ip), "\n"))
-}
-
-func glob() {
-	path := "/Users/huaguo/www/golang/src/leetcode"
-
-	goFiles, _ := filepath.Glob(filepath.Join(path, "*.go"))
-	fmt.Printf("%v\n", goFiles)
-
-	logoImagesByName := make(map[string][]image.Image)
-
-	logoFolder := path + "/static/img/"
-
-	filename := filepath.Base(logoFolder)
-	logoImages := make([]image.Image, 0)
-
-	logoFiles, _ := filepath.Glob(logoFolder + "/*png")
-
-	for _, logoFile := range logoFiles {
-		logoData, _ := os.Open(logoFile)
-		defer logoData.Close()
-
-		reader := bufio.NewReader(logoData)
-		logoImage, _ := png.Decode(reader)
-
-		logoImages = append(logoImages, logoImage)
-	}
-
-	logoImagesByName[filename] = logoImages
-
-	fmt.Printf("%v\n", logoImagesByName)
 }

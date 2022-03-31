@@ -11,6 +11,18 @@ import (
 )
 
 func main() {
+	// go 自带的 sort.Slice 排序
+	//rand.Seed(time.Now().UnixNano())
+	//old := []lsort.Student{}
+	//for i := 0; i < 10; i++ {
+	//	old = append(old, lsort.Student{
+	//		ID:    i + 1,
+	//		Name:  "ID" + strconv.Itoa(i+1),
+	//		Score: rand.Intn(99),
+	//	})
+	//}
+	//lsort.DiySort(old)
+
 	//fmt.Println(countAndSay(5))
 	//
 	//nums := []int{1, 2, 1, 2, 4, 7, 7}
@@ -33,9 +45,9 @@ func main() {
 	//res := answers.CoinChange(nums, 11)
 	//fmt.Printf("%v\n", res)
 
-	//快速排序
+	//各种排序
 	//nums := []int{1, 9, 36, 7, 4, 2, 3, 22, 89, 5}
-	//answers.QuickSort(nums, 0, len(nums)-1)
+	//lsort.Merge(nums, 0, len(nums)-1)
 	//fmt.Printf("%v\n", nums)
 
 	//1. 两数之和
@@ -541,23 +553,31 @@ func main() {
 	//145. 二叉树的后序遍历
 	//103. 二叉树的锯齿形层序遍历
 	//199. 二叉树的右视图
-	//root := &answers.TreeNode{
-	//	Val:  1,
-	//	Left: nil,
-	//	Right: &answers.TreeNode{
-	//		Val: 2,
-	//		Left: &answers.TreeNode{
-	//			Val:   3,
-	//			Left:  nil,
-	//			Right: nil,
-	//		},
-	//		Right: nil,
-	//	},
-	//}
-	////res := answers.PreorderTraversal(root)
-	////res := answers.InorderTraversal(root)
-	////res := answers.PostorderTraversal(root)
-	//fmt.Printf("%v\n", res)
+	root := &answers.TreeNode{
+		Val: 5,
+		Left: &answers.TreeNode{
+			Val: 4,
+			Left: &answers.TreeNode{
+				Val:   1,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &answers.TreeNode{
+				Val:   2,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &answers.TreeNode{
+			Val:   6,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+	//res := answers.PreorderTraversal(root)
+	//res := answers.InorderTraversal(root)
+	res := answers.PostorderTraversal(root)
+	fmt.Printf("%v\n", res)
 
 	//102. 二叉树的层序遍历
 	//root := &answers.TreeNode{

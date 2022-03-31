@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"container/list"
 	"fmt"
 	"leetcode/answers"
@@ -87,8 +88,39 @@ func main() {
 
 	//res = maxSubArray([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4})
 
-	res = pivotIndex([]int{1, 7, 3, 6, 5, 6})
-	println("res is", res)
+	//res = pivotIndex([]int{1, 7, 3, 6, 5, 6})
+
+	//params := []byte{'a', 'a', 'b', 'b', 'b', 'c', 'c'}
+	//res = compress(params)
+
+	//params := []int{1, 2, 2, 3, 4, 5, 6}
+	//res = removeElement(params, 2)
+
+	res = missingNum([]int{1, 3, 6, 4, 1, 2})
+	fmt.Println("res is", res)
+}
+
+// https://leetcode-cn.com/problems/string-compression/
+// 443. 压缩字符串，返回压缩后的长度
+func compress(chars []byte) int {
+	res := []byte{}
+	slow, counter := 0, 0
+	for slow+counter < len(chars) {
+		if chars[slow] == chars[slow+counter] {
+			counter++
+		} else {
+			res = append(res, chars[slow], byte(counter)+'0')
+			//fmt.Printf("%v\n", res)
+			slow += counter
+			counter = 1
+		}
+	}
+	if slow < len(chars) {
+		res = append(res, chars[slow], byte(counter)+'0')
+	}
+	//fmt.Printf("%v\n", res)
+
+	return len(res)
 }
 
 // https://leetcode-cn.com/problems/maximum-subarray/
@@ -635,10 +667,236 @@ func pivotIndex(nums []int) int {
 // https://mp.weixin.qq.com/s?__biz=Mzg3NDU4MDQ3Mw==&mid=2247491440&idx=2&sn=2937dfd27da220af83bf263d8559a1b2&chksm=cecfcfe6f9b846f045cca09988f47ced4e026d0b5f64f8ee99154a8d5fd8506eddce1c87b31f&cur_album_id=1839734456706760708&scene=190#rd
 // 删除链表里重复元素
 func deleteDuplicates(head *answers.ListNode) *answers.ListNode {
-	slow, fast := head, head.Next
-	for slow.Next != nil && fast.Next != nil {
-
+	slow, fast := head, head
+	root := &answers.ListNode{
+		Val:  0,
+		Next: nil,
+	}
+	res := root
+	for fast != nil {
+		if slow.Val == fast.Val {
+			fast = fast.Next
+		} else {
+			root.Next = fast
+			slow = fast
+			fast = fast.Next
+		}
 	}
 
-	return head
+	return res.Next
+}
+
+// https://mp.weixin.qq.com/s?__biz=Mzg3NDU4MDQ3Mw==&mid=2247491428&idx=1&sn=941ed312a7f0efc8e21d01b59ba87be9&chksm=cecfcff2f9b846e4e60c8805c745618154da2218d033eee1b3f16f28ce69d8342345ef4c783f&cur_album_id=1839734456706760708&scene=190#rd
+// 删除重复元素
+func removeElement2(nums []int, target int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+
+	var pos, counter int
+	size := len(nums)
+	for ; pos < size; pos++ {
+		if nums[pos] == target {
+			//1,[2],2,3,4,5,6 依次用后面的值覆盖前面的值
+			for j := pos; j+1 < size; j++ {
+				nums[j] = nums[j+1]
+			}
+			pos--  // 保留当前索引，1,2,2,3,4,5 如果没有这一步 这种情况会出问题
+			size-- // size减少1，由于数组整体减少了1
+		} else {
+			counter++
+		}
+	}
+	fmt.Printf("%v\n", nums)
+
+	return counter
+}
+
+// 双指针（遇到target就略过，遇到不是target就fast后覆盖前slow）
+func removeElement(nums []int, target int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+
+	var slow, fast int
+	for fast = 0; fast < len(nums); fast++ {
+		if nums[fast] != target {
+			nums[slow] = nums[fast]
+			slow++
+		}
+	}
+	fmt.Printf("%v\n", nums)
+
+	return slow
+}
+
+// https://mp.weixin.qq.com/s?__biz=Mzg3NDU4MDQ3Mw==&mid=2247491442&idx=1&sn=753e9d5fda6e6d4c9117df20dc8d3920&source=41#wechat_redirect
+// 输入两个链表，找出它们的第一个公共节点
+//func getIntersectionNode(headA, headB *answers.ListNode) int {
+//	tempA, tempB := headA, headB
+//
+//	for tempA != tempB {
+//		if tempA != nil {
+//			tempA = tempA.Next
+//		} else {
+//			tempA = tempB
+//		}
+//
+//		if tempB != nil {
+//			tempB = tempB.Next
+//		} else {
+//			tempB = tempA
+//		}
+//	}
+//}
+
+//score=55
+func missingNum(nums []int) int {
+	sort.Ints(nums)
+	size := len(nums)
+
+	for i := 0; i+1 < size; i++ {
+		if nums[i+1] == nums[i] {
+			continue
+		}
+		if nums[i+1]-nums[i] != 1 && nums[i] > 0 {
+			return nums[i] + 1
+		}
+	}
+
+	if nums[size-1] > 0 {
+		return nums[size-1] + 1
+	}
+
+	return 1
+}
+
+//score=22
+func missingNum2(nums []int) int {
+	size, maxVal := len(nums), -1<<32
+
+	cache := make(map[int]int, len(nums))
+
+	for i := 0; i < size; i++ {
+		cache[nums[i]]++
+		if nums[i] > maxVal {
+			maxVal = nums[i]
+		}
+	}
+	//fmt.Printf("%v\n", cache)
+	for key, _ := range cache {
+		if _, ok := cache[key+1]; !ok && key > 0 && key < maxVal {
+			return (key + 1)
+		}
+	}
+
+	if maxVal < 0 {
+		return 1
+	}
+
+	return maxVal + 1
+}
+
+//score=33
+func missingNum3(nums []int) int {
+	size, maxVal := len(nums), -1<<32
+
+	cache := new(Bitmap)
+
+	for i := 0; i < size; i++ {
+		if nums[i] > maxVal {
+			maxVal = nums[i]
+		}
+		if nums[i] > 0 {
+			cache.Add(nums[i])
+		}
+	}
+
+	for i := 0; i < size; i++ {
+		next := nums[i] + 1
+		if next >= 0 {
+			ok := cache.IsExist(next)
+			if !ok && nums[i] != maxVal {
+				return nums[i] + 1
+			}
+		}
+	}
+
+	if maxVal < 0 {
+		return 1
+	}
+
+	return maxVal + 1
+}
+
+type Bitmap struct {
+	// i*64 and get the value (i is the index of slice)
+	modValues []uint64
+	length    int
+}
+
+func (bitmap *Bitmap) IsExist(num int) bool {
+	// get the floor and the position in a uint64 number.
+	floor, bit := num/64, uint(num%64)
+	return floor < len(bitmap.modValues) && (bitmap.modValues[floor]&(1<<bit)) != 0
+}
+
+// add a number and return true if succeeds, false if not (it is in already).
+func (bitmap *Bitmap) Add(num int) bool {
+	floor, bit := num/64, uint(num%64)
+	isExist := false
+	for floor >= len(bitmap.modValues) {
+		bitmap.modValues = append(bitmap.modValues, 0)
+		isExist = true
+	}
+	// get the position in the uint64
+	remainder := uint64(1 << bit)
+
+	// judge if the number is in the bitmap.
+	if !isExist && bitmap.modValues[floor]&remainder != 0 {
+		return false
+	}
+
+	isExist = true
+
+	// the remainder index will be set to 1.
+	bitmap.modValues[floor] |= remainder
+	bitmap.length++
+
+	return isExist
+}
+
+// remove a number and return true if succeeds or false if not (the number is not in bitmap).
+func (bitmap *Bitmap) Sub(num int) bool {
+	floor, bit := num/64, uint(num%64)
+	for floor >= len(bitmap.modValues) {
+		return false
+	}
+	// judge the number in the bitmap, directly return false if not.
+	if bitmap.modValues[floor]&(1<<bit) == 0 {
+		return false
+	}
+
+	// the remainder index will be set to 0.
+	bitmap.modValues[floor] -= 1 << bit
+	bitmap.length--
+
+	return true
+}
+
+// the number of the elements in the bitmap.
+func (bitmap *Bitmap) Len() int {
+	return bitmap.length
+}
+
+// output the binary number, from lower to upper.
+func (bitmap *Bitmap) BitString() string {
+	buf := bytes.Buffer{}
+	for _, m := range bitmap.modValues {
+		item := strconv.FormatUint(m, 2)
+		for i := len(item) - 1; i >= 0; i-- {
+			buf.WriteString(item[i : i+1])
+		}
+	}
+	return buf.String()
 }

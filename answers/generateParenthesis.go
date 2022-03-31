@@ -2,9 +2,9 @@ package answers
 
 // https://leetcode-cn.com/problems/generate-parentheses/
 // 22. 括号生成
-func generateParenthesis(n int) []string {
-
-}
+//func generateParenthesis(n int) []string {
+//
+//}
 
 //stack结构
 type StackPair struct {

@@ -7,50 +7,39 @@ type ListNode struct {
 
 //https://leetcode-cn.com/problems/merge-two-sorted-lists/
 //21. 合并两个有序链表
-func MergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-	// 如果有一条为nil， 直接返回另一条
-	if l1 == nil {
-		return l2
+func MergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+	// 如果某一个是空的 直接返回另一个
+	if list1 == nil {
+		return list2
 	}
-	if l2 == nil {
-		return l1
+	if list2 == nil {
+		return list1
 	}
-	// 定义头head和移动指针node
-	var head, node *ListNode
-	// 选小的那条开始
-	// 前面判断过l1和l2了，所以这里不可能是空指针
-	if l1.Val < l2.Val {
-		head = l1
-		node = l1
-		l1 = l1.Next
-	} else {
-		head = l2
-		node = l2
-		l2 = l2.Next
+
+	head := &ListNode{
+		Val:  0,
+		Next: nil,
 	}
-	// 循环比较，同时更新
-	// 始终选择小的值连到node上
-	for l1 != nil && l2 != nil {
-		if l1.Val < l2.Val {
-			// 指向小的那条
-			node.Next = l1
-			// 小的往前走
-			l1 = l1.Next
+	res := head //head用于遍历；res用于最后返回的时候用，一直指向表头
+	// 如果2个链表有内容就一直遍历
+	for list1 != nil && list2 != nil {
+		//fmt.Println(list1.Val, list2.Val)
+		if list1.Val > list2.Val {
+			head.Next = list2
+			list2 = list2.Next
 		} else {
-			node.Next = l2
-			l2 = l2.Next
+			head.Next = list1
+			list1 = list1.Next
 		}
-		// 【重要】node往前走
-		node = node.Next
+		head = head.Next
 	}
-	// 循环完了，把剩下的直接放到后面，因为本身就是有序的，所以接在后面就行
-	if l1 != nil {
-		node.Next = l1
+	// 直到至少1个链表无内容了 就直接用head接上另一个链表即可
+	if list1 != nil {
+		head.Next = list1
 	}
-	if l2 != nil {
-		node.Next = l2
+	if list2 != nil {
+		head.Next = list2
 	}
-	// 返回最初的那个头
-	// 这个头不能动，否则找不到了
-	return head
+
+	return res.Next
 }
